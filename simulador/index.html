@@ -79,47 +79,11 @@
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    // Versão compacta apenas com as fórmulas matemáticas diretas (sem teoria longa)
-    const CONCISE_FORMULAS = `# 📐 Formulário Essencial de Física 2 (P2)
-
-### 1. Corrente & Lei de Ohm
-$$I = \\frac{dq}{dt} = \\int \\vec{J} \\cdot d\\vec{A} \\qquad \\vec{J} = n q \\vec{v}_d = \\sigma \\vec{E} = \\frac{\\vec{E}}{\\rho}$$
-$$R = \\frac{V}{I} = \\rho \\frac{L}{A} \\qquad \\rho(T) = \\rho_0 [1 + \\alpha(T - T_0)]$$
-$$P = V I = I^2 R = \\frac{V^2}{R} \\qquad V = \\mathcal{E} \\pm I r$$
-
-### 2. Circuitos DC & Regras de Kirchhoff
-* **Série:** $R_{eq} = \\sum R_i \\qquad$ **Paralelo:** $\\frac{1}{R_{eq}} = \\sum \\frac{1}{R_i}$
-* **Nós:** $\\sum I_{entra} = \\sum I_{sai} \\qquad$ **Malhas:** $\\sum \\Delta V = 0$
-
-### 3. Circuitos RC
-$$\\tau = R C \\qquad U = \\frac{1}{2} C V^2 = \\frac{q^2}{2C}$$
-* **Carga:** $q(t) = C\\mathcal{E}(1 - e^{-t/\\tau}) \\qquad V_C(t) = \\mathcal{E}(1 - e^{-t/\\tau}) \\qquad I(t) = \\frac{\\mathcal{E}}{R} e^{-t/\\tau}$
-* **Descarga:** $q(t) = Q_0 e^{-t/\\tau} \\qquad V_C(t) = V_0 e^{-t/\\tau} \\qquad I(t) = \\frac{Q_0}{\\tau} e^{-t/\\tau}$
-
-### 4. Força Magnética & Trajetória
-$$\\vec{F}_B = q (\\vec{v} \\times \\vec{B}) \\implies F_B = |q| v B \\sin\\theta \\qquad (W_B = 0 \\implies \\Delta K = 0)$$
-$$R = \\frac{m v}{|q| B} = \\frac{\\sqrt{2mK}}{|q| B} \\qquad T = \\frac{2\\pi m}{|q| B} \\qquad \\omega = \\frac{|q| B}{m}$$
-* **Seletor de velocidades:** $v = \\frac{E}{B} \\qquad$ **Efeito Hall:** $V_H = \\frac{I B}{n q t}$
-
-### 5. Força em Fios & Dipolo Magnético
-$$d\\vec{F} = I (d\\vec{l} \\times \\vec{B}) \\implies \\vec{F} = I (\\vec{L} \\times \\vec{B}) \\qquad \\vec{\\mu} = N I \\vec{A}$$
-$$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\theta \\qquad U = -\\vec{\\mu} \\cdot \\vec{B} = -\\mu B \\cos\\theta$$
-
-### 6. Fontes de Campo Magnético ($\\mu_0 = 4\\pi \\times 10^{-7}$ T·m/A)
-* **Biot-Savart:** $d\\vec{B} = \\frac{\\mu_0 I}{4\\pi} \\frac{d\\vec{s} \\times \\hat{r}}{r^2}$
-* **Fio Reto Infinito:** $B = \\frac{\\mu_0 I}{2\\pi r} \\qquad$ **Força entre Fios:** $\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d}$
-* **Arco Circular no Centro:** $B = \\frac{\\mu_0 I \\phi}{4\\pi R} \\implies \\text{Espira: } B = \\frac{\\mu_0 I}{2 R}$
-* **Eixo de Anel:** $B(z) = \\frac{\\mu_0 I R^2}{2(R^2 + z^2)^{3/2}}$
-* **Lei de Ampère:** $\\oint \\vec{B} \\cdot d\\vec{s} = \\mu_0 I_{env}$
-* **Solenoide Ideal:** $B = \\mu_0 n I = \\mu_0 \\frac{N}{L} I \\qquad$ **Toroide:** $B = \\frac{\\mu_0 N I}{2\\pi r}$
-`;
-
     function App() {
       const [exams, setExams] = useState([]);
       const [selectedExam, setSelectedExam] = useState(null);
       const [answers, setAnswers] = useState({});
       const [currentPage, setCurrentPage] = useState(0);
-      const [formulaPage, setFormulaPage] = useState(0); // Pág do formulário oficial (0 = pág 1)
       const [zoom, setZoom] = useState(100);
       const [formulaZoom, setFormulaZoom] = useState(100);
       const [timeLeft, setTimeLeft] = useState(7200); // 2 hours
@@ -128,8 +92,7 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
       const [fullSummaryMarkdown, setFullSummaryMarkdown] = useState('');
       const [viewMode, setViewMode] = useState('single'); // 'single' or 'scroll'
       const [activeTab, setActiveTab] = useState('exam'); // 'exam', 'card', 'formulas'
-      const [formulaSource, setFormulaSource] = useState('colinha'); // 'colinha' or 'oficial'
-      const [showTheoryDetails, setShowTheoryDetails] = useState(true); // Checkbox para mostrar/ocultar teoria e dicas
+      const [showExtraSummary, setShowExtraSummary] = useState(false); // Checkbox: Mostrar ou não o resumo extra
 
       // Load exams and cheat sheet
       useEffect(() => {
@@ -165,7 +128,6 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
         if (selectedExam) {
           setAnswers({});
           setCurrentPage(0);
-          setFormulaPage(0);
           setIsSubmitted(false);
           setTimeLeft(7200);
           setIsTimerRunning(false);
@@ -185,11 +147,11 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
         return () => clearInterval(interval);
       }, [isTimerRunning, timeLeft, isSubmitted]);
 
-      // KaTeX rendering inside formulas tab
+      // KaTeX rendering inside extra summary when opened
       useEffect(() => {
-        if (activeTab === 'formulas' && window.renderMathInElement) {
+        if (activeTab === 'formulas' && showExtraSummary && window.renderMathInElement) {
           setTimeout(() => {
-            const el = document.getElementById('formulas-tab-content');
+            const el = document.getElementById('extra-summary-content');
             if (el) {
               window.renderMathInElement(el, {
                 delimiters: [
@@ -203,7 +165,7 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
             }
           }, 50);
         }
-      }, [activeTab, fullSummaryMarkdown, formulaSource, showTheoryDetails]);
+      }, [activeTab, showExtraSummary, fullSummaryMarkdown]);
 
       const formatTime = (seconds) => {
         const h = Math.floor(seconds / 3600);
@@ -243,6 +205,9 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
       const result = isSubmitted ? calculateResult() : null;
       const totalAnswered = Object.keys(answers).filter(k => answers[k] !== null).length;
 
+      // Pega as páginas de formulário oficial da prova (Página 1 e Página 2)
+      const officialFormulaPages = selectedExam ? selectedExam.pages.slice(0, Math.min(selectedExam.totalPages, 2)) : [];
+
       return (
         <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 select-none overflow-hidden">
           {/* Top Navbar */}
@@ -255,7 +220,7 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
                 <h1 className="font-bold text-sm md:text-base text-white leading-tight flex items-center gap-1.5">
                   Simulador de Física 2 <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60">P2</span>
                 </h1>
-                <p className="text-[11px] text-slate-400 hidden sm:block">Treino sem spoilers & Correção Automática</p>
+                <p className="text-[11px] text-slate-400 hidden sm:block">Treino idêntico à prova & Correção Automática</p>
               </div>
             </div>
 
@@ -374,9 +339,9 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
               }`}
             >
               <span className="text-base">📐</span> 
-              <span>Formulário & Resumo</span>
+              <span>Formulário</span>
               <span className="hidden sm:inline-block text-[10px] px-1.5 py-0.2 rounded bg-indigo-950 text-indigo-300 border border-indigo-800/60">
-                P2
+                Oficial da Prova
               </span>
             </button>
           </nav>
@@ -646,129 +611,111 @@ $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies \\tau = \\mu B \\sin\\th
               </div>
             </div>
 
-            {/* TAB 3: Formulário & Resumo com Checkbox e Seleção de Página */}
+            {/* TAB 3: Formulário Oficial da Prova + Checkbox de Resumo Extra */}
             <div className={`flex-1 flex flex-col bg-slate-900/95 overflow-hidden ${
               activeTab === 'formulas' ? 'flex' : 'hidden'
             }`}>
-              {/* Formula Source Sub-bar */}
-              <div className="min-h-12 py-2 bg-slate-900 border-b border-slate-800 flex flex-wrap items-center justify-between px-4 text-xs gap-3 shrink-0">
-                {/* Mode Selector */}
+              {/* Formulário Toolbar */}
+              <div className="min-h-12 py-2.5 bg-slate-900 border-b border-slate-800 flex flex-wrap items-center justify-between px-4 text-xs gap-3 shrink-0">
+                {/* Title & Info */}
                 <div className="flex items-center space-x-2">
-                  <span className="font-bold text-slate-300 hidden sm:inline">Modo:</span>
-                  <div className="flex bg-slate-800 p-0.5 rounded-lg border border-slate-700">
-                    <button
-                      onClick={() => setFormulaSource('colinha')}
-                      className={`px-3 py-1 rounded-md font-semibold transition-all ${
-                        formulaSource === 'colinha' 
-                          ? 'bg-indigo-600 text-white shadow' 
-                          : 'text-slate-400 hover:text-white'
-                      }`}
-                    >
-                      📐 Resumo KaTeX
-                    </button>
-                    <button
-                      onClick={() => setFormulaSource('oficial')}
-                      className={`px-3 py-1 rounded-md font-semibold transition-all ${
-                        formulaSource === 'oficial' 
-                          ? 'bg-indigo-600 text-white shadow' 
-                          : 'text-slate-400 hover:text-white'
-                      }`}
-                    >
-                      📄 Folha Original da Prova
-                    </button>
-                  </div>
+                  <span className="font-extrabold text-sm text-indigo-300 flex items-center gap-1.5">
+                    <span>📄</span> Formulário Oficial da Prova
+                  </span>
+                  {selectedExam && (
+                    <span className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono border border-slate-700 hidden sm:inline">
+                      {selectedExam.title} (Págs. 1 e 2)
+                    </span>
+                  )}
                 </div>
 
-                {/* Controls based on selected mode */}
-                {formulaSource === 'colinha' ? (
-                  /* Checkbox para Mostrar/Ocultar Explicações e Teoria */
-                  <label className="flex items-center space-x-2 cursor-pointer bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-indigo-500/50 transition-all">
+                {/* Right Controls: Checkbox & Zoom */}
+                <div className="flex items-center space-x-3 ml-auto sm:ml-0">
+                  {/* Checkbox: Mostrar ou Não o Resumo */}
+                  <label className="flex items-center space-x-2 cursor-pointer bg-slate-800/90 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-indigo-500/50 transition-all">
                     <input
                       type="checkbox"
-                      checked={showTheoryDetails}
-                      onChange={(e) => setShowTheoryDetails(e.target.checked)}
+                      checked={showExtraSummary}
+                      onChange={(e) => setShowExtraSummary(e.target.checked)}
                       className="w-4 h-4 rounded text-indigo-500 bg-slate-900 border-slate-600 focus:ring-indigo-500 cursor-pointer"
                     />
                     <span className="text-xs font-semibold text-slate-200">
-                      {showTheoryDetails ? '✓ Exibindo Resumo Completo & Dicas' : 'Apenas Fórmulas Diretas (Enxuto)'}
+                      {showExtraSummary ? '✓ Resumo Teórico Ativo' : 'Mostrar Resumo Teórico / Colinha'}
                     </span>
                   </label>
-                ) : (
-                  /* Controles para a Folha Original (Navegação de Páginas e Zoom) */
-                  <div className="flex items-center space-x-2">
-                    <span className="text-slate-400 font-medium hidden sm:inline">Página do Formulário:</span>
-                    <div className="flex items-center bg-slate-800 rounded-lg p-0.5 border border-slate-700">
-                      {selectedExam && Array.from({ length: Math.min(selectedExam.totalPages, 3) }).map((_, pIdx) => (
-                        <button
-                          key={pIdx}
-                          onClick={() => setFormulaPage(pIdx)}
-                          className={`px-2.5 py-1 rounded text-xs font-bold transition-all ${
-                            formulaPage === pIdx 
-                              ? 'bg-indigo-600 text-white shadow' 
-                              : 'text-slate-400 hover:text-white'
-                          }`}
-                        >
-                          Pág. {pIdx + 1} {pIdx === 0 ? '(Início)' : pIdx === 1 ? '(Fórmulas)' : ''}
-                        </button>
-                      ))}
-                    </div>
 
-                    <div className="flex items-center space-x-1 ml-2">
-                      <button
-                        onClick={() => setFormulaZoom(prev => Math.max(60, prev - 15))}
-                        className="w-7 h-7 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs"
-                      >
-                        -
-                      </button>
-                      <span className="font-mono text-indigo-400 font-bold text-xs w-10 text-center">{formulaZoom}%</span>
-                      <button
-                        onClick={() => setFormulaZoom(prev => Math.min(200, prev + 15))}
-                        className="w-7 h-7 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs"
-                      >
-                        +
-                      </button>
-                    </div>
+                  {/* Zoom Controls */}
+                  <div className="flex items-center space-x-1">
+                    <button
+                      onClick={() => setFormulaZoom(prev => Math.max(60, prev - 15))}
+                      className="w-7 h-7 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs"
+                      title="Diminuir Zoom"
+                    >
+                      -
+                    </button>
+                    <span className="font-mono text-indigo-400 font-bold text-xs w-10 text-center">{formulaZoom}%</span>
+                    <button
+                      onClick={() => setFormulaZoom(prev => Math.min(200, prev + 15))}
+                      className="w-7 h-7 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold text-xs"
+                      title="Aumentar Zoom"
+                    >
+                      +
+                    </button>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* Formula Content Area */}
-              <div className="flex-1 overflow-y-auto custom-scroll p-4 md:p-8 bg-slate-950">
-                {formulaSource === 'colinha' ? (
-                  <div className="max-w-4xl mx-auto text-sm text-slate-200 latex-content">
-                    <div 
-                      id="formulas-tab-content"
-                      dangerouslySetInnerHTML={{ 
-                        __html: marked.parse(
-                          showTheoryDetails 
-                            ? (fullSummaryMarkdown || '# Carregando Resumo...') 
-                            : CONCISE_FORMULAS
-                        ) 
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <div className="flex justify-center items-start">
-                    {selectedExam && selectedExam.pages.length > formulaPage ? (
-                      <div 
-                        style={{ width: `${formulaZoom}%`, maxWidth: `${formulaZoom * 8.5}px` }} 
-                        className="transition-all duration-150 shadow-2xl rounded overflow-hidden bg-white border border-slate-700"
-                      >
-                        <div className="bg-slate-800 text-slate-300 text-xs px-3 py-1 font-semibold border-b border-slate-700 flex justify-between">
-                          <span>{selectedExam.title} - Página {formulaPage + 1}</span>
-                          <span className="text-indigo-400 font-bold">Folha Original</span>
-                        </div>
-                        <img 
-                          src={selectedExam.pages[formulaPage]} 
-                          alt={`Formulário Página ${formulaPage + 1}`}
-                          className="w-full h-auto block select-none pointer-events-none"
-                        />
+              <div className="flex-1 overflow-y-auto custom-scroll p-4 md:p-8 bg-slate-950 flex flex-col items-center">
+                
+                {/* 1. SEÇÃO PRINCIPAL: Folha de Fórmulas Oficial da Própria Prova (Páginas 1 e 2 juntas) */}
+                <div 
+                  style={{ width: `${formulaZoom}%`, maxWidth: `${formulaZoom * 8.5}px` }} 
+                  className="space-y-6 transition-all duration-150 w-full"
+                >
+                  {officialFormulaPages.map((pg, idx) => (
+                    <div key={idx} className="shadow-2xl rounded overflow-hidden bg-white border border-slate-700">
+                      <div className="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 font-semibold border-b border-slate-700 flex justify-between">
+                        <span className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                          Folha da Prova — Página {idx + 1} {idx === 0 ? '(Instruções, Constantes & Fórmulas)' : '(Continuação das Fórmulas)'}
+                        </span>
+                        <span className="text-indigo-400 font-bold text-[11px]">Oficial do Exame</span>
                       </div>
-                    ) : (
-                      <p className="text-slate-400">Página de formulário não disponível para esta prova.</p>
-                    )}
+                      <img 
+                        src={pg} 
+                        alt={`Formulário da Prova Página ${idx + 1}`}
+                        className="w-full h-auto block select-none pointer-events-none"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* 2. SEÇÃO EXTRA (Apenas quando o Checkbox for marcado) */}
+                {showExtraSummary && (
+                  <div className="w-full max-w-4xl mt-10 p-6 rounded-2xl bg-slate-900 border border-indigo-800/60 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200">
+                    <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-xl">💡</span>
+                        <h3 className="font-bold text-base text-indigo-300">Resumo Teórico Extra & Dicas de P2 (KaTeX)</h3>
+                      </div>
+                      <button
+                        onClick={() => setShowExtraSummary(false)}
+                        className="text-xs text-slate-400 hover:text-rose-400 underline font-semibold"
+                      >
+                        Ocultar Resumo
+                      </button>
+                    </div>
+
+                    <div className="text-sm text-slate-200 latex-content">
+                      <div 
+                        id="extra-summary-content"
+                        dangerouslySetInnerHTML={{ __html: marked.parse(fullSummaryMarkdown || '# Carregando Resumo...') }}
+                      />
+                    </div>
                   </div>
                 )}
+
               </div>
             </div>
 
