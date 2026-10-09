@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Simulador de Provas - Física 2 (P2)</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,14 +13,6 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <!-- Marked for markdown rendering -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <script>
-    window.EMBEDDED_EXAMS = [{"id": "P2 (15.1) Física 2", "title": "P2 (15.1) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (15.1) Física 2/page_1.png", "assets/exams/P2 (15.1) Física 2/page_2.png", "assets/exams/P2 (15.1) Física 2/page_3.png", "assets/exams/P2 (15.1) Física 2/page_4.png", "assets/exams/P2 (15.1) Física 2/page_5.png", "assets/exams/P2 (15.1) Física 2/page_6.png", "assets/exams/P2 (15.1) Física 2/page_7.png", "assets/exams/P2 (15.1) Física 2/page_8.png"], "totalQuestions": 17, "gabarito": ["D", "A", "C", "B", "E", "A", "C", "B", "D", "C", "B", "C", "E", "A", "D", "A", "E"]}, {"id": "P2 (15.2) Física 2", "title": "P2 (15.2) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (15.2) Física 2/page_1.png", "assets/exams/P2 (15.2) Física 2/page_2.png", "assets/exams/P2 (15.2) Física 2/page_3.png", "assets/exams/P2 (15.2) Física 2/page_4.png", "assets/exams/P2 (15.2) Física 2/page_5.png", "assets/exams/P2 (15.2) Física 2/page_6.png", "assets/exams/P2 (15.2) Física 2/page_7.png", "assets/exams/P2 (15.2) Física 2/page_8.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (16.1) Física 2", "title": "P2 (16.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (16.1) Física 2/page_1.png", "assets/exams/P2 (16.1) Física 2/page_2.png", "assets/exams/P2 (16.1) Física 2/page_3.png", "assets/exams/P2 (16.1) Física 2/page_4.png", "assets/exams/P2 (16.1) Física 2/page_5.png", "assets/exams/P2 (16.1) Física 2/page_6.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (16.2) Física 2", "title": "P2 (16.2) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (16.2) Física 2/page_1.png", "assets/exams/P2 (16.2) Física 2/page_2.png", "assets/exams/P2 (16.2) Física 2/page_3.png", "assets/exams/P2 (16.2) Física 2/page_4.png", "assets/exams/P2 (16.2) Física 2/page_5.png", "assets/exams/P2 (16.2) Física 2/page_6.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (17.2) Física 2", "title": "P2 (17.2) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (17.2) Física 2/page_1.png", "assets/exams/P2 (17.2) Física 2/page_2.png", "assets/exams/P2 (17.2) Física 2/page_3.png", "assets/exams/P2 (17.2) Física 2/page_4.png", "assets/exams/P2 (17.2) Física 2/page_5.png", "assets/exams/P2 (17.2) Física 2/page_6.png", "assets/exams/P2 (17.2) Física 2/page_7.png", "assets/exams/P2 (17.2) Física 2/page_8.png"], "totalQuestions": 8, "gabarito": ["E", "D", "C", "C", "C", "C", "B", "B"]}, {"id": "P2 (18.1) Física 2", "title": "P2 (18.1) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (18.1) Física 2/page_1.png", "assets/exams/P2 (18.1) Física 2/page_2.png", "assets/exams/P2 (18.1) Física 2/page_3.png", "assets/exams/P2 (18.1) Física 2/page_4.png", "assets/exams/P2 (18.1) Física 2/page_5.png", "assets/exams/P2 (18.1) Física 2/page_6.png", "assets/exams/P2 (18.1) Física 2/page_7.png", "assets/exams/P2 (18.1) Física 2/page_8.png"], "totalQuestions": 21, "gabarito": ["C", "A", "A", "B", "C", "D", "D", "C", "D", "D", "A", "A", "A", "B", "C", "C", "D", "E", "D", "B", "A"]}, {"id": "P2 (18.2) Física 2", "title": "P2 (18.2) Física 2", "totalPages": 15, "pages": ["assets/exams/P2 (18.2) Física 2/page_1.png", "assets/exams/P2 (18.2) Física 2/page_2.png", "assets/exams/P2 (18.2) Física 2/page_3.png", "assets/exams/P2 (18.2) Física 2/page_4.png", "assets/exams/P2 (18.2) Física 2/page_5.png", "assets/exams/P2 (18.2) Física 2/page_6.png", "assets/exams/P2 (18.2) Física 2/page_7.png", "assets/exams/P2 (18.2) Física 2/page_8.png", "assets/exams/P2 (18.2) Física 2/page_9.png", "assets/exams/P2 (18.2) Física 2/page_10.png", "assets/exams/P2 (18.2) Física 2/page_11.png", "assets/exams/P2 (18.2) Física 2/page_12.png", "assets/exams/P2 (18.2) Física 2/page_13.png", "assets/exams/P2 (18.2) Física 2/page_14.png", "assets/exams/P2 (18.2) Física 2/page_15.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (19.1) Física 2", "title": "P2 (19.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (19.1) Física 2/page_1.png", "assets/exams/P2 (19.1) Física 2/page_2.png", "assets/exams/P2 (19.1) Física 2/page_3.png", "assets/exams/P2 (19.1) Física 2/page_4.png", "assets/exams/P2 (19.1) Física 2/page_5.png", "assets/exams/P2 (19.1) Física 2/page_6.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (20.1) Física 2", "title": "P2 (20.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (20.1) Física 2/page_1.png", "assets/exams/P2 (20.1) Física 2/page_2.png", "assets/exams/P2 (20.1) Física 2/page_3.png", "assets/exams/P2 (20.1) Física 2/page_4.png", "assets/exams/P2 (20.1) Física 2/page_5.png", "assets/exams/P2 (20.1) Física 2/page_6.png"], "totalQuestions": 16, "gabarito": ["A", "A", "A", "C", "B", "C", "C", "B", "A", "E", "B", "C", "A", "B", "B", "E"]}, {"id": "P2 (22.1) Física 2", "title": "P2 (22.1) Física 2", "totalPages": 17, "pages": ["assets/exams/P2 (22.1) Física 2/page_1.png", "assets/exams/P2 (22.1) Física 2/page_2.png", "assets/exams/P2 (22.1) Física 2/page_3.png", "assets/exams/P2 (22.1) Física 2/page_4.png", "assets/exams/P2 (22.1) Física 2/page_5.png", "assets/exams/P2 (22.1) Física 2/page_6.png", "assets/exams/P2 (22.1) Física 2/page_7.png", "assets/exams/P2 (22.1) Física 2/page_8.png", "assets/exams/P2 (22.1) Física 2/page_9.png", "assets/exams/P2 (22.1) Física 2/page_10.png", "assets/exams/P2 (22.1) Física 2/page_11.png", "assets/exams/P2 (22.1) Física 2/page_12.png", "assets/exams/P2 (22.1) Física 2/page_13.png", "assets/exams/P2 (22.1) Física 2/page_14.png", "assets/exams/P2 (22.1) Física 2/page_15.png", "assets/exams/P2 (22.1) Física 2/page_16.png", "assets/exams/P2 (22.1) Física 2/page_17.png"], "totalQuestions": 23, "gabarito": ["A", "A", "D", "A", "E", "B", "E", "C", "D", "A", "A", "E", "E", "D", "A", "E", "D", "D", "A", "E", "B", "A", "B"]}, {"id": "P2 (24.1) Física 2", "title": "P2 (24.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (24.1) Física 2/page_1.png", "assets/exams/P2 (24.1) Física 2/page_2.png", "assets/exams/P2 (24.1) Física 2/page_3.png", "assets/exams/P2 (24.1) Física 2/page_4.png", "assets/exams/P2 (24.1) Física 2/page_5.png", "assets/exams/P2 (24.1) Física 2/page_6.png"], "totalQuestions": 17, "gabarito": ["E", "A", "D", "A", "E", "D", "D", "D", "C", "E", "B", "C", "B", "B", "C", "C", "E"]}, {"id": "P2 (24.2) Física 2", "title": "P2 (24.2) Física 2", "totalPages": 7, "pages": ["assets/exams/P2 (24.2) Física 2/page_1.png", "assets/exams/P2 (24.2) Física 2/page_2.png", "assets/exams/P2 (24.2) Física 2/page_3.png", "assets/exams/P2 (24.2) Física 2/page_4.png", "assets/exams/P2 (24.2) Física 2/page_5.png", "assets/exams/P2 (24.2) Física 2/page_6.png", "assets/exams/P2 (24.2) Física 2/page_7.png"], "totalQuestions": 15, "gabarito": ["A", "D", "B", "E", "C", "D", "B", "E", "E", "C", "C", "C", "D", "A", "D"]}, {"id": "P2 (25.1) Física 2", "title": "P2 (25.1) Física 2", "totalPages": 5, "pages": ["assets/exams/P2 (25.1) Física 2/page_1.png", "assets/exams/P2 (25.1) Física 2/page_2.png", "assets/exams/P2 (25.1) Física 2/page_3.png", "assets/exams/P2 (25.1) Física 2/page_4.png", "assets/exams/P2 (25.1) Física 2/page_5.png"], "totalQuestions": 15, "gabarito": ["D", "C", "E", "C", "C", "D", "B", "D", "E", "B", "A", "C", "B", "E", "A"]}, {"id": "P2 (25.2) Física 2", "title": "P2 (25.2) Física 2", "totalPages": 7, "pages": ["assets/exams/P2 (25.2) Física 2/page_1.png", "assets/exams/P2 (25.2) Física 2/page_2.png", "assets/exams/P2 (25.2) Física 2/page_3.png", "assets/exams/P2 (25.2) Física 2/page_4.png", "assets/exams/P2 (25.2) Física 2/page_5.png", "assets/exams/P2 (25.2) Física 2/page_6.png", "assets/exams/P2 (25.2) Física 2/page_7.png"], "totalQuestions": 15, "gabarito": ["E", "D", "D", "B", "D", "A", "C", "B", "B", "A", "C", "E", "C", "B", "A"]}, {"id": "P2 (26.1) Física 2", "title": "P2 (26.1) Física 2", "totalPages": 7, "pages": ["assets/exams/P2 (26.1) Física 2/page_1.png", "assets/exams/P2 (26.1) Física 2/page_2.png", "assets/exams/P2 (26.1) Física 2/page_3.png", "assets/exams/P2 (26.1) Física 2/page_4.png", "assets/exams/P2 (26.1) Física 2/page_5.png", "assets/exams/P2 (26.1) Física 2/page_6.png", "assets/exams/P2 (26.1) Física 2/page_7.png"], "totalQuestions": 19, "gabarito": ["C", "D", "E", "A", "B", "B", "B", "A", "B", "A", "C", "A", "A", "E", "C", "E", "A", "B", "C"]}];
-    window.EMBEDDED_CHEAT_SHEET = "# ⚡ GUIA RÁPIDO & SUPER FORMULÁRIO DE P2 (FÍSICA 2)\n> **Como usar:** Estude e resolva as primeiras provas consultando esta \"colinha de bolso\". Quando estiver seguro, faça os simulados usando apenas o formulário oficial que vem na capa da prova!\n\n---\n\n## 📌 1. CORRENTE ELÉTRICA, RESISTÊNCIA & POTÊNCIA\n\n### Fórmulas Essenciais:\n* **Corrente e Densidade:**\n  $$I = \\frac{dq}{dt} = \\int \\vec{J} \\cdot d\\vec{A} = J \\cdot A \\quad (\\text{se uniforme})$$\n  $$\\vec{J} = n q \\vec{v}_d = \\sigma \\vec{E} = \\frac{\\vec{E}}{\\rho}$$\n  *(onde $n$ = densidade de portadores $/m^3$, $v_d$ = velocidade de deriva, $\\sigma$ = condutividade, $\\rho$ = resistividade)*\n\n* **Resistência e Lei de Ohm:**\n  $$R = \\frac{V}{I} \\qquad R = \\rho \\frac{L}{A}$$\n  * Variação com temperatura: $\\rho(T) = \\rho_0 [1 + \\alpha(T - T_0)]$\n\n* **Potência Elétrica:**\n  $$P = V \\cdot I = I^2 R = \\frac{V^2}{R}$$\n\n* **Gerador Real (Bateria com resistência interna $r$):**\n  * Fornecendo corrente (descarga): $V = \\mathcal{E} - I r$\n  * Sendo carregada: $V = \\mathcal{E} + I r$\n\n---\n\n## 📌 2. CIRCUITOS DC & REGRAS DE KIRCHHOFF\n\n### Associações:\n* **Resistores:**\n  * **Série:** $R_{eq} = R_1 + R_2 + \\dots$ (mesma corrente $I$)\n  * **Paralelo:** $\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots \\implies R_{eq} = \\frac{R_1 R_2}{R_1 + R_2}$ (mesma ddp $V$)\n\n### Regras de Kirchhoff:\n1. **Lei dos Nós (Carga):** $\\sum I_{entra} = \\sum I_{sai}$\n2. **Lei das Malhas (Energia):** $\\sum \\Delta V = 0$\n   * No sentido da corrente no resistor: $-IR$\n   * Contra o sentido da corrente no resistor: $+IR$\n   * Do polo $-$ para $+$ da bateria: $+\\mathcal{E}$\n   * Do polo $+$ para $-$ da bateria: $-\\mathcal{E}$\n\n---\n\n## 📌 3. CIRCUITOS RC (CARGA E DESCARGA)\n\n* **Constante de tempo:** $\\tau = R C$ (em segundos)\n* **Energia no capacitor:** $U = \\frac{1}{2} C V^2 = \\frac{q^2}{2C} = \\frac{1}{2} q V$\n\n### 🔋 Carga do Capacitor (com bateria $\\mathcal{E}$):\n* **Carga:** $q(t) = C\\mathcal{E} \\left(1 - e^{-t/\\tau}\\right) = Q_{max} \\left(1 - e^{-t/\\tau}\\right)$\n* **Tensão no Capacitor:** $V_C(t) = \\mathcal{E} \\left(1 - e^{-t/\\tau}\\right)$\n* **Corrente & Tensão no Resistor:** $I(t) = \\frac{\\mathcal{E}}{R} e^{-t/\\tau} = I_0 e^{-t/\\tau} \\quad \\text{e} \\quad V_R(t) = \\mathcal{E} e^{-t/\\tau}$\n\n### 🪫 Descarga do Capacitor (sem bateria, a partir de $Q_0$):\n* $q(t) = Q_0 e^{-t/\\tau}$\n* $V_C(t) = V_0 e^{-t/\\tau}$\n* $I(t) = \\frac{Q_0}{\\tau} e^{-t/\\tau} = I_0 e^{-t/\\tau}$\n\n> 💡 **Comportamento Assintótico (MUITO COBRADO EM TEORIA):**\n> * **No instante inicial ($t = 0^+$):** Capacitor descarregado age como um **Fio / Curto-circuito** ($V_C = 0$).\n> * **No regime estacionário ($t \\to \\infty$):** Capacitor totalmente carregado age como uma **Chave Aberta** ($I_C = 0$, corrente não passa pelo ramo do capacitor).\n\n---\n\n## 📌 4. CAMPO MAGNÉTICO ($\\vec{B}$) & FORÇA MAGNÉTICA\n\n### Força de Lorentz sobre Carga Móvel:\n$$\\vec{F}_B = q (\\vec{v} \\times \\vec{B}) \\implies |\\vec{F}_B| = |q| v B \\sin\\theta$$\n* ⚠️ **A força magnética NUNCA realiza trabalho sobre carga livre:** $W_B = 0 \\implies \\Delta K = 0$ (a velocidade escalar $v$ e a energia cinética são sempre constantes; altera apenas a direção do movimento).\n\n### Movimento Circular Uniforme em $\\vec{B}$ uniforme ($\\vec{v} \\perp \\vec{B}$):\n* **Raio:** $R = \\frac{m v}{|q| B} = \\frac{p}{|q| B} = \\frac{\\sqrt{2m K}}{|q| B}$\n* **Período e Frequência:** $T = \\frac{2\\pi m}{|q| B} \\quad (\\text{não depende de } v \\text{ nem de } R!) \\qquad \\omega = \\frac{|q| B}{m}$\n* **Passo da hélice** (se houver $v_\\parallel = v \\cos\\theta$): $p = v_\\parallel \\cdot T$\n\n### Dispositivos Especiais:\n* **Seletor de Velocidades:** $\\vec{F}_E + \\vec{F}_B = 0 \\implies v = \\frac{E}{B}$\n* **Efeito Hall:** $V_H = E_H \\cdot d = \\frac{I B}{n q t}$ *(onde $t$ é a espessura da fita e $d$ é a largura)*. O sinal de $V_H$ indica se os portadores são positivos ($+$) ou elétrons ($-$).\n\n---\n\n## 📌 5. FORÇA EM CONDUTORES & MOMENTO DE DIPOLO\n\n* **Força sobre Fio com Corrente:**\n  $$d\\vec{F} = I (d\\vec{l} \\times \\vec{B}) \\implies \\vec{F} = I (\\vec{L} \\times \\vec{B}) \\quad (\\text{para fio reto em campo uniforme})$$\n  * Em qualquer espira fechada imersa em campo $\\vec{B}$ uniforme: $\\vec{F}_{total} = \\oint I d\\vec{l} \\times \\vec{B} = \\vec{0}$.\n\n* **Momento de Dipolo Magnético ($\\vec{\\mu}$):**\n  $$\\vec{\\mu} = N I \\vec{A} \\quad (\\text{RMD: dedos no sentido de } I \\implies \\text{polegar no sentido de } \\vec{\\mu})$$\n\n* **Torque & Energia Potencial em Espiras:**\n  $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies |\\tau| = \\mu B \\sin\\theta$$\n  $$U = -\\vec{\\mu} \\cdot \\vec{B} = -\\mu B \\cos\\theta$$\n  * **Equilíbrio Estável:** $\\vec{\\mu} \\parallel \\vec{B}$ ($\\theta = 0^\\circ \\implies U = -\\mu B$, torque nulo).\n  * **Equilíbrio Instável:** $\\vec{\\mu}$ antiparalelo a $\\vec{B}$ ($\\theta = 180^\\circ \\implies U = +\\mu B$, torque nulo).\n\n---\n\n## 📌 6. FONTES DE CAMPO MAGNÉTICO (BIOT-SAVART & AMPÈRE)\n\n> Constante: $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$\n\n### Lei de Biot-Savart:\n$$d\\vec{B} = \\frac{\\mu_0 I}{4\\pi} \\frac{d\\vec{s} \\times \\hat{r}}{r^2}$$\n\n### 🌟 Geometrias Clássicas de Campo Magnético (Grave estas!):\n1. **Fio Retilíneo Infinito:**\n   $$B = \\frac{\\mu_0 I}{2\\pi r}$$\n2. **Arco Circular de Raio $R$ e Ângulo $\\phi$ (radianos) no Centro:**\n   $$B = \\frac{\\mu_0 I \\phi}{4\\pi R} \\implies \\begin{cases} \\text{Espira completa } (\\phi = 2\\pi): & B = \\frac{\\mu_0 I}{2 R} \\\\ \\text{Semi-círculo } (\\phi = \\pi): & B = \\frac{\\mu_0 I}{4 R} \\end{cases}$$\n3. **No Eixo de um Anel/Espira de Raio $R$ a uma distância $z$ do centro:**\n   $$B(z) = \\frac{\\mu_0 I R^2}{2 (R^2 + z^2)^{3/2}} = \\frac{\\mu_0 \\mu}{2\\pi (R^2 + z^2)^{3/2}}$$\n4. **Força entre Fios Paralelos de comprimento $L$ separados por $d$:**\n   $$\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d} \\implies \\begin{cases} \\text{Correntes no MESMO sentido} & \\to \\text{\\textbf{ATRAÇÃO}} \\\\ \\text{Correntes em sentidos OPOSTOS} & \\to \\text{\\textbf{REPULSÃO}} \\end{cases}$$\n\n### Lei de Ampère:\n$$\\oint \\vec{B} \\cdot d\\vec{s} = \\mu_0 I_{envolvida}$$\n\n1. **Fio Cilindro Maciço de Raio $R$ com corrente uniforme:**\n   * Fora ($r \\ge R$): $B(r) = \\frac{\\mu_0 I}{2\\pi r}$\n   * Dentro ($r < R$): $B(r) = \\frac{\\mu_0 I r}{2\\pi R^2} \\quad (\\text{cresce linearmente com } r)$\n2. **Solenoide Ideal Longo ($n = N/L$ espiras/metro):**\n   $$B_{interno} = \\mu_0 n I = \\mu_0 \\frac{N}{L} I \\qquad (B_{externo} \\approx 0)$$\n3. **Toroide de $N$ espiras:**\n   $$B(r) = \\frac{\\mu_0 N I}{2\\pi r} \\quad (\\text{no interior do toroide})$$\n4. **Placa Plana Infinita de Corrente com densidade linear $K = I/w$:**\n   $$B = \\frac{\\mu_0 K}{2}$$\n\n---\n\n## 🎯 7. GUIA RÁPIDO DAS REGRAS DA MÃO DIREITA (RMD)\n\n| Aplicação | Polegar | Dedos restantes | Palma / Vetor resultante |\n| :--- | :--- | :--- | :--- |\n| **Força $\\vec{F} = q\\vec{v}\\times\\vec{B}$** | Vetor Velocidade ($\\vec{v}$) | Vetor Campo ($\\vec{B}$) | Palma empurra $\\vec{F}$ (se $q > 0$). Se $q < 0$, inverta o sentido de $\\vec{F}$! |\n| **Força $\\vec{F} = I\\vec{L}\\times\\vec{B}$** | Sentido da Corrente ($I$) | Vetor Campo ($\\vec{B}$) | Palma empurra a força $\\vec{F}$. |\n| **Campo $\\vec{B}$ de Fio Reto** | Sentido da Corrente ($I$) | Abraçam o fio $\\to$ indicam o giro circular de $\\vec{B}$. | Tangente ao círculo em cada ponto. |\n| **Espira / Solenoide** | Aponta no sentido de $\\vec{\\mu}$ e $\\vec{B}$ no centro | Enrolam no sentido da corrente $I$ | O polegar indica o \"Polo Norte\" da espira. |\n";
-  </script>
-
   <!-- KaTeX for formulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -30,22 +22,23 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0f172a;
+      background-color: #090d16;
       color: #f8fafc;
+      -webkit-tap-highlight-color: transparent;
     }
     .custom-scroll::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
     .custom-scroll::-webkit-scrollbar-track {
-      background: #1e293b;
+      background: #0f172a;
     }
     .custom-scroll::-webkit-scrollbar-thumb {
-      background: #475569;
+      background: #334155;
       border-radius: 4px;
     }
     .custom-scroll::-webkit-scrollbar-thumb:hover {
-      background: #64748b;
+      background: #475569;
     }
     .latex-content h1, .latex-content h2, .latex-content h3 {
       color: #38bdf8;
@@ -75,8 +68,13 @@
     }
   </style>
 </head>
-<body class="h-screen flex flex-col overflow-hidden">
-  <div id="root" class="h-full flex flex-col"></div>
+<body class="h-screen w-screen flex flex-col overflow-hidden bg-slate-950 text-slate-100">
+  <div id="root" class="h-full w-full flex flex-col"></div>
+
+  <script>
+    window.EMBEDDED_EXAMS = [{"id": "P2 (15.1) Física 2", "title": "P2 (15.1) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (15.1) Física 2/page_1.png", "assets/exams/P2 (15.1) Física 2/page_2.png", "assets/exams/P2 (15.1) Física 2/page_3.png", "assets/exams/P2 (15.1) Física 2/page_4.png", "assets/exams/P2 (15.1) Física 2/page_5.png", "assets/exams/P2 (15.1) Física 2/page_6.png", "assets/exams/P2 (15.1) Física 2/page_7.png", "assets/exams/P2 (15.1) Física 2/page_8.png"], "totalQuestions": 17, "gabarito": ["D", "A", "C", "B", "E", "A", "C", "B", "D", "C", "B", "C", "E", "A", "D", "A", "E"]}, {"id": "P2 (15.2) Física 2", "title": "P2 (15.2) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (15.2) Física 2/page_1.png", "assets/exams/P2 (15.2) Física 2/page_2.png", "assets/exams/P2 (15.2) Física 2/page_3.png", "assets/exams/P2 (15.2) Física 2/page_4.png", "assets/exams/P2 (15.2) Física 2/page_5.png", "assets/exams/P2 (15.2) Física 2/page_6.png", "assets/exams/P2 (15.2) Física 2/page_7.png", "assets/exams/P2 (15.2) Física 2/page_8.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (16.1) Física 2", "title": "P2 (16.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (16.1) Física 2/page_1.png", "assets/exams/P2 (16.1) Física 2/page_2.png", "assets/exams/P2 (16.1) Física 2/page_3.png", "assets/exams/P2 (16.1) Física 2/page_4.png", "assets/exams/P2 (16.1) Física 2/page_5.png", "assets/exams/P2 (16.1) Física 2/page_6.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (16.2) Física 2", "title": "P2 (16.2) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (16.2) Física 2/page_1.png", "assets/exams/P2 (16.2) Física 2/page_2.png", "assets/exams/P2 (16.2) Física 2/page_3.png", "assets/exams/P2 (16.2) Física 2/page_4.png", "assets/exams/P2 (16.2) Física 2/page_5.png", "assets/exams/P2 (16.2) Física 2/page_6.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (17.2) Física 2", "title": "P2 (17.2) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (17.2) Física 2/page_1.png", "assets/exams/P2 (17.2) Física 2/page_2.png", "assets/exams/P2 (17.2) Física 2/page_3.png", "assets/exams/P2 (17.2) Física 2/page_4.png", "assets/exams/P2 (17.2) Física 2/page_5.png", "assets/exams/P2 (17.2) Física 2/page_6.png", "assets/exams/P2 (17.2) Física 2/page_7.png", "assets/exams/P2 (17.2) Física 2/page_8.png"], "totalQuestions": 8, "gabarito": ["E", "D", "C", "C", "C", "C", "B", "B"]}, {"id": "P2 (18.1) Física 2", "title": "P2 (18.1) Física 2", "totalPages": 8, "pages": ["assets/exams/P2 (18.1) Física 2/page_1.png", "assets/exams/P2 (18.1) Física 2/page_2.png", "assets/exams/P2 (18.1) Física 2/page_3.png", "assets/exams/P2 (18.1) Física 2/page_4.png", "assets/exams/P2 (18.1) Física 2/page_5.png", "assets/exams/P2 (18.1) Física 2/page_6.png", "assets/exams/P2 (18.1) Física 2/page_7.png", "assets/exams/P2 (18.1) Física 2/page_8.png"], "totalQuestions": 21, "gabarito": ["C", "A", "A", "B", "C", "D", "D", "C", "D", "D", "A", "A", "A", "B", "C", "C", "D", "E", "D", "B", "A"]}, {"id": "P2 (18.2) Física 2", "title": "P2 (18.2) Física 2", "totalPages": 15, "pages": ["assets/exams/P2 (18.2) Física 2/page_1.png", "assets/exams/P2 (18.2) Física 2/page_2.png", "assets/exams/P2 (18.2) Física 2/page_3.png", "assets/exams/P2 (18.2) Física 2/page_4.png", "assets/exams/P2 (18.2) Física 2/page_5.png", "assets/exams/P2 (18.2) Física 2/page_6.png", "assets/exams/P2 (18.2) Física 2/page_7.png", "assets/exams/P2 (18.2) Física 2/page_8.png", "assets/exams/P2 (18.2) Física 2/page_9.png", "assets/exams/P2 (18.2) Física 2/page_10.png", "assets/exams/P2 (18.2) Física 2/page_11.png", "assets/exams/P2 (18.2) Física 2/page_12.png", "assets/exams/P2 (18.2) Física 2/page_13.png", "assets/exams/P2 (18.2) Física 2/page_14.png", "assets/exams/P2 (18.2) Física 2/page_15.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (19.1) Física 2", "title": "P2 (19.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (19.1) Física 2/page_1.png", "assets/exams/P2 (19.1) Física 2/page_2.png", "assets/exams/P2 (19.1) Física 2/page_3.png", "assets/exams/P2 (19.1) Física 2/page_4.png", "assets/exams/P2 (19.1) Física 2/page_5.png", "assets/exams/P2 (19.1) Física 2/page_6.png"], "totalQuestions": 15, "gabarito": []}, {"id": "P2 (20.1) Física 2", "title": "P2 (20.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (20.1) Física 2/page_1.png", "assets/exams/P2 (20.1) Física 2/page_2.png", "assets/exams/P2 (20.1) Física 2/page_3.png", "assets/exams/P2 (20.1) Física 2/page_4.png", "assets/exams/P2 (20.1) Física 2/page_5.png", "assets/exams/P2 (20.1) Física 2/page_6.png"], "totalQuestions": 16, "gabarito": ["A", "A", "A", "C", "B", "C", "C", "B", "A", "E", "B", "C", "A", "B", "B", "E"]}, {"id": "P2 (22.1) Física 2", "title": "P2 (22.1) Física 2", "totalPages": 17, "pages": ["assets/exams/P2 (22.1) Física 2/page_1.png", "assets/exams/P2 (22.1) Física 2/page_2.png", "assets/exams/P2 (22.1) Física 2/page_3.png", "assets/exams/P2 (22.1) Física 2/page_4.png", "assets/exams/P2 (22.1) Física 2/page_5.png", "assets/exams/P2 (22.1) Física 2/page_6.png", "assets/exams/P2 (22.1) Física 2/page_7.png", "assets/exams/P2 (22.1) Física 2/page_8.png", "assets/exams/P2 (22.1) Física 2/page_9.png", "assets/exams/P2 (22.1) Física 2/page_10.png", "assets/exams/P2 (22.1) Física 2/page_11.png", "assets/exams/P2 (22.1) Física 2/page_12.png", "assets/exams/P2 (22.1) Física 2/page_13.png", "assets/exams/P2 (22.1) Física 2/page_14.png", "assets/exams/P2 (22.1) Física 2/page_15.png", "assets/exams/P2 (22.1) Física 2/page_16.png", "assets/exams/P2 (22.1) Física 2/page_17.png"], "totalQuestions": 23, "gabarito": ["A", "A", "D", "A", "E", "B", "E", "C", "D", "A", "A", "E", "E", "D", "A", "E", "D", "D", "A", "E", "B", "A", "B"]}, {"id": "P2 (24.1) Física 2", "title": "P2 (24.1) Física 2", "totalPages": 6, "pages": ["assets/exams/P2 (24.1) Física 2/page_1.png", "assets/exams/P2 (24.1) Física 2/page_2.png", "assets/exams/P2 (24.1) Física 2/page_3.png", "assets/exams/P2 (24.1) Física 2/page_4.png", "assets/exams/P2 (24.1) Física 2/page_5.png", "assets/exams/P2 (24.1) Física 2/page_6.png"], "totalQuestions": 17, "gabarito": ["E", "A", "D", "A", "E", "D", "D", "D", "C", "E", "B", "C", "B", "B", "C", "C", "E"]}, {"id": "P2 (24.2) Física 2", "title": "P2 (24.2) Física 2", "totalPages": 7, "pages": ["assets/exams/P2 (24.2) Física 2/page_1.png", "assets/exams/P2 (24.2) Física 2/page_2.png", "assets/exams/P2 (24.2) Física 2/page_3.png", "assets/exams/P2 (24.2) Física 2/page_4.png", "assets/exams/P2 (24.2) Física 2/page_5.png", "assets/exams/P2 (24.2) Física 2/page_6.png", "assets/exams/P2 (24.2) Física 2/page_7.png"], "totalQuestions": 15, "gabarito": ["A", "D", "B", "E", "C", "D", "B", "E", "E", "C", "C", "C", "D", "A", "D"]}, {"id": "P2 (25.1) Física 2", "title": "P2 (25.1) Física 2", "totalPages": 5, "pages": ["assets/exams/P2 (25.1) Física 2/page_1.png", "assets/exams/P2 (25.1) Física 2/page_2.png", "assets/exams/P2 (25.1) Física 2/page_3.png", "assets/exams/P2 (25.1) Física 2/page_4.png", "assets/exams/P2 (25.1) Física 2/page_5.png"], "totalQuestions": 15, "gabarito": ["D", "C", "E", "C", "C", "D", "B", "D", "E", "B", "A", "C", "B", "E", "A"]}, {"id": "P2 (25.2) Física 2", "title": "P2 (25.2) Física 2", "totalPages": 7, "pages": ["assets/exams/P2 (25.2) Física 2/page_1.png", "assets/exams/P2 (25.2) Física 2/page_2.png", "assets/exams/P2 (25.2) Física 2/page_3.png", "assets/exams/P2 (25.2) Física 2/page_4.png", "assets/exams/P2 (25.2) Física 2/page_5.png", "assets/exams/P2 (25.2) Física 2/page_6.png", "assets/exams/P2 (25.2) Física 2/page_7.png"], "totalQuestions": 15, "gabarito": ["E", "D", "D", "B", "D", "A", "C", "B", "B", "A", "C", "E", "C", "B", "A"]}, {"id": "P2 (26.1) Física 2", "title": "P2 (26.1) Física 2", "totalPages": 7, "pages": ["assets/exams/P2 (26.1) Física 2/page_1.png", "assets/exams/P2 (26.1) Física 2/page_2.png", "assets/exams/P2 (26.1) Física 2/page_3.png", "assets/exams/P2 (26.1) Física 2/page_4.png", "assets/exams/P2 (26.1) Física 2/page_5.png", "assets/exams/P2 (26.1) Física 2/page_6.png", "assets/exams/P2 (26.1) Física 2/page_7.png"], "totalQuestions": 19, "gabarito": ["C", "D", "E", "A", "B", "B", "B", "A", "B", "A", "C", "A", "A", "E", "C", "E", "A", "B", "C"]}];
+    window.EMBEDDED_CHEAT_SHEET = "# ⚡ GUIA RÁPIDO & SUPER FORMULÁRIO DE P2 (FÍSICA 2)\n> **Como usar:** Estude e resolva as primeiras provas consultando esta \"colinha de bolso\". Quando estiver seguro, faça os simulados usando apenas o formulário oficial que vem na capa da prova!\n\n---\n\n## 📌 1. CORRENTE ELÉTRICA, RESISTÊNCIA & POTÊNCIA\n\n### Fórmulas Essenciais:\n* **Corrente e Densidade:**\n  $$I = \\frac{dq}{dt} = \\int \\vec{J} \\cdot d\\vec{A} = J \\cdot A \\quad (\\text{se uniforme})$$\n  $$\\vec{J} = n q \\vec{v}_d = \\sigma \\vec{E} = \\frac{\\vec{E}}{\\rho}$$\n  *(onde $n$ = densidade de portadores $/m^3$, $v_d$ = velocidade de deriva, $\\sigma$ = condutividade, $\\rho$ = resistividade)*\n\n* **Resistência e Lei de Ohm:**\n  $$R = \\frac{V}{I} \\qquad R = \\rho \\frac{L}{A}$$\n  * Variação com temperatura: $\\rho(T) = \\rho_0 [1 + \\alpha(T - T_0)]$\n\n* **Potência Elétrica:**\n  $$P = V \\cdot I = I^2 R = \\frac{V^2}{R}$$\n\n* **Gerador Real (Bateria com resistência interna $r$):**\n  * Fornecendo corrente (descarga): $V = \\mathcal{E} - I r$\n  * Sendo carregada: $V = \\mathcal{E} + I r$\n\n---\n\n## 📌 2. CIRCUITOS DC & REGRAS DE KIRCHHOFF\n\n### Associações:\n* **Resistores:**\n  * **Série:** $R_{eq} = R_1 + R_2 + \\dots$ (mesma corrente $I$)\n  * **Paralelo:** $\\frac{1}{R_{eq}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots \\implies R_{eq} = \\frac{R_1 R_2}{R_1 + R_2}$ (mesma ddp $V$)\n\n### Regras de Kirchhoff:\n1. **Lei dos Nós (Carga):** $\\sum I_{entra} = \\sum I_{sai}$\n2. **Lei das Malhas (Energia):** $\\sum \\Delta V = 0$\n   * No sentido da corrente no resistor: $-IR$\n   * Contra o sentido da corrente no resistor: $+IR$\n   * Do polo $-$ para $+$ da bateria: $+\\mathcal{E}$\n   * Do polo $+$ para $-$ da bateria: $-\\mathcal{E}$\n\n---\n\n## 📌 3. CIRCUITOS RC (CARGA E DESCARGA)\n\n* **Constante de tempo:** $\\tau = R C$ (em segundos)\n* **Energia no capacitor:** $U = \\frac{1}{2} C V^2 = \\frac{q^2}{2C} = \\frac{1}{2} q V$\n\n### 🔋 Carga do Capacitor (com bateria $\\mathcal{E}$):\n* **Carga:** $q(t) = C\\mathcal{E} \\left(1 - e^{-t/\\tau}\\right) = Q_{max} \\left(1 - e^{-t/\\tau}\\right)$\n* **Tensão no Capacitor:** $V_C(t) = \\mathcal{E} \\left(1 - e^{-t/\\tau}\\right)$\n* **Corrente & Tensão no Resistor:** $I(t) = \\frac{\\mathcal{E}}{R} e^{-t/\\tau} = I_0 e^{-t/\\tau} \\quad \\text{e} \\quad V_R(t) = \\mathcal{E} e^{-t/\\tau}$\n\n### 🪫 Descarga do Capacitor (sem bateria, a partir de $Q_0$):\n* $q(t) = Q_0 e^{-t/\\tau}$\n* $V_C(t) = V_0 e^{-t/\\tau}$\n* $I(t) = \\frac{Q_0}{\\tau} e^{-t/\\tau} = I_0 e^{-t/\\tau}$\n\n> 💡 **Comportamento Assintótico (MUITO COBRADO EM TEORIA):**\n> * **No instante inicial ($t = 0^+$):** Capacitor descarregado age como um **Fio / Curto-circuito** ($V_C = 0$).\n> * **No regime estacionário ($t \\to \\infty$):** Capacitor totalmente carregado age como uma **Chave Aberta** ($I_C = 0$, corrente não passa pelo ramo do capacitor).\n\n---\n\n## 📌 4. CAMPO MAGNÉTICO ($\\vec{B}$) & FORÇA MAGNÉTICA\n\n### Força de Lorentz sobre Carga Móvel:\n$$\\vec{F}_B = q (\\vec{v} \\times \\vec{B}) \\implies |\\vec{F}_B| = |q| v B \\sin\\theta$$\n* ⚠️ **A força magnética NUNCA realiza trabalho sobre carga livre:** $W_B = 0 \\implies \\Delta K = 0$ (a velocidade escalar $v$ e a energia cinética são sempre constantes; altera apenas a direção do movimento).\n\n### Movimento Circular Uniforme em $\\vec{B}$ uniforme ($\\vec{v} \\perp \\vec{B}$):\n* **Raio:** $R = \\frac{m v}{|q| B} = \\frac{p}{|q| B} = \\frac{\\sqrt{2m K}}{|q| B}$\n* **Período e Frequência:** $T = \\frac{2\\pi m}{|q| B} \\quad (\\text{não depende de } v \\text{ nem de } R!) \\qquad \\omega = \\frac{|q| B}{m}$\n* **Passo da hélice** (se houver $v_\\parallel = v \\cos\\theta$): $p = v_\\parallel \\cdot T$\n\n### Dispositivos Especiais:\n* **Seletor de Velocidades:** $\\vec{F}_E + \\vec{F}_B = 0 \\implies v = \\frac{E}{B}$\n* **Efeito Hall:** $V_H = E_H \\cdot d = \\frac{I B}{n q t}$ *(onde $t$ é a espessura da fita e $d$ é a largura)*. O sinal de $V_H$ indica se os portadores são positivos ($+$) ou elétrons ($-$).\n\n---\n\n## 📌 5. FORÇA EM CONDUTORES & MOMENTO DE DIPOLO\n\n* **Força sobre Fio com Corrente:**\n  $$d\\vec{F} = I (d\\vec{l} \\times \\vec{B}) \\implies \\vec{F} = I (\\vec{L} \\times \\vec{B}) \\quad (\\text{para fio reto em campo uniforme})$$\n  * Em qualquer espira fechada imersa em campo $\\vec{B}$ uniforme: $\\vec{F}_{total} = \\oint I d\\vec{l} \\times \\vec{B} = \\vec{0}$.\n\n* **Momento de Dipolo Magnético ($\\vec{\\mu}$):**\n  $$\\vec{\\mu} = N I \\vec{A} \\quad (\\text{RMD: dedos no sentido de } I \\implies \\text{polegar no sentido de } \\vec{\\mu})$$\n\n* **Torque & Energia Potencial em Espiras:**\n  $$\\vec{\\tau} = \\vec{\\mu} \\times \\vec{B} \\implies |\\tau| = \\mu B \\sin\\theta$$\n  $$U = -\\vec{\\mu} \\cdot \\vec{B} = -\\mu B \\cos\\theta$$\n  * **Equilíbrio Estável:** $\\vec{\\mu} \\parallel \\vec{B}$ ($\\theta = 0^\\circ \\implies U = -\\mu B$, torque nulo).\n  * **Equilíbrio Instável:** $\\vec{\\mu}$ antiparalelo a $\\vec{B}$ ($\\theta = 180^\\circ \\implies U = +\\mu B$, torque nulo).\n\n---\n\n## 📌 6. FONTES DE CAMPO MAGNÉTICO (BIOT-SAVART & AMPÈRE)\n\n> Constante: $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T}\\cdot\\text{m/A}$\n\n### Lei de Biot-Savart:\n$$d\\vec{B} = \\frac{\\mu_0 I}{4\\pi} \\frac{d\\vec{s} \\times \\hat{r}}{r^2}$$\n\n### 🌟 Geometrias Clássicas de Campo Magnético (Grave estas!):\n1. **Fio Retilíneo Infinito:**\n   $$B = \\frac{\\mu_0 I}{2\\pi r}$$\n2. **Arco Circular de Raio $R$ e Ângulo $\\phi$ (radianos) no Centro:**\n   $$B = \\frac{\\mu_0 I \\phi}{4\\pi R} \\implies \\begin{cases} \\text{Espira completa } (\\phi = 2\\pi): & B = \\frac{\\mu_0 I}{2 R} \\\\ \\text{Semi-círculo } (\\phi = \\pi): & B = \\frac{\\mu_0 I}{4 R} \\end{cases}$$\n3. **No Eixo de um Anel/Espira de Raio $R$ a uma distância $z$ do centro:**\n   $$B(z) = \\frac{\\mu_0 I R^2}{2 (R^2 + z^2)^{3/2}} = \\frac{\\mu_0 \\mu}{2\\pi (R^2 + z^2)^{3/2}}$$\n4. **Força entre Fios Paralelos de comprimento $L$ separados por $d$:**\n   $$\\frac{F}{L} = \\frac{\\mu_0 I_1 I_2}{2\\pi d} \\implies \\begin{cases} \\text{Correntes no MESMO sentido} & \\to \\text{\\textbf{ATRAÇÃO}} \\\\ \\text{Correntes em sentidos OPOSTOS} & \\to \\text{\\textbf{REPULSÃO}} \\end{cases}$$\n\n### Lei de Ampère:\n$$\\oint \\vec{B} \\cdot d\\vec{s} = \\mu_0 I_{envolvida}$$\n\n1. **Fio Cilindro Maciço de Raio $R$ com corrente uniforme:**\n   * Fora ($r \\ge R$): $B(r) = \\frac{\\mu_0 I}{2\\pi r}$\n   * Dentro ($r < R$): $B(r) = \\frac{\\mu_0 I r}{2\\pi R^2} \\quad (\\text{cresce linearmente com } r)$\n2. **Solenoide Ideal Longo ($n = N/L$ espiras/metro):**\n   $$B_{interno} = \\mu_0 n I = \\mu_0 \\frac{N}{L} I \\qquad (B_{externo} \\approx 0)$$\n3. **Toroide de $N$ espiras:**\n   $$B(r) = \\frac{\\mu_0 N I}{2\\pi r} \\quad (\\text{no interior do toroide})$$\n4. **Placa Plana Infinita de Corrente com densidade linear $K = I/w$:**\n   $$B = \\frac{\\mu_0 K}{2}$$\n\n---\n\n## 🎯 7. GUIA RÁPIDO DAS REGRAS DA MÃO DIREITA (RMD)\n\n| Aplicação | Polegar | Dedos restantes | Palma / Vetor resultante |\n| :--- | :--- | :--- | :--- |\n| **Força $\\vec{F} = q\\vec{v}\\times\\vec{B}$** | Vetor Velocidade ($\\vec{v}$) | Vetor Campo ($\\vec{B}$) | Palma empurra $\\vec{F}$ (se $q > 0$). Se $q < 0$, inverta o sentido de $\\vec{F}$! |\n| **Força $\\vec{F} = I\\vec{L}\\times\\vec{B}$** | Sentido da Corrente ($I$) | Vetor Campo ($\\vec{B}$) | Palma empurra a força $\\vec{F}$. |\n| **Campo $\\vec{B}$ de Fio Reto** | Sentido da Corrente ($I$) | Abraçam o fio $\\to$ indicam o giro circular de $\\vec{B}$. | Tangente ao círculo em cada ponto. |\n| **Espira / Solenoide** | Aponta no sentido de $\\vec{\\mu}$ e $\\vec{B}$ no centro | Enrolam no sentido da corrente $I$ | O polegar indica o \"Polo Norte\" da espira. |\n";
+  </script>
 
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
@@ -90,20 +88,39 @@
       const [timeLeft, setTimeLeft] = useState(7200); // 2 hours
       const [isTimerRunning, setIsTimerRunning] = useState(false);
       const [isSubmitted, setIsSubmitted] = useState(false);
-      const [showCheatSheet, setShowCheatSheet] = useState(false);
       const [cheatSheetMarkdown, setCheatSheetMarkdown] = useState('');
       const [viewMode, setViewMode] = useState('single'); // 'single' or 'scroll'
-      const [mobileTab, setMobileTab] = useState('exam'); // 'exam' or 'card'
+      const [activeTab, setActiveTab] = useState('exam'); // 'exam', 'card', 'formulas'
+      const [splitView, setSplitView] = useState(true); // on wide screens, show side-by-side
+      const [formulaSource, setFormulaSource] = useState('colinha'); // 'colinha' or 'oficial'
 
-      // Load exams and cheat sheet from embedded data (with fetch fallback)
+      // Load exams and cheat sheet
       useEffect(() => {
-        const data = window.EMBEDDED_EXAMS || [];
-        setExams(data);
-        if (data.length > 0) {
-          const defaultExam = data.find(e => e.id.includes('24.1')) || data[0];
+        if (window.EMBEDDED_EXAMS) {
+          setExams(window.EMBEDDED_EXAMS);
+          const defaultExam = window.EMBEDDED_EXAMS.find(e => e.id.includes('24.1')) || window.EMBEDDED_EXAMS[0];
           setSelectedExam(defaultExam);
+        } else {
+          fetch('exams.json')
+            .then(res => res.json())
+            .then(data => {
+              setExams(data);
+              if (data.length > 0) {
+                const defaultExam = data.find(e => e.id.includes('24.1')) || data[0];
+                setSelectedExam(defaultExam);
+              }
+            })
+            .catch(err => console.error("Error loading exams:", err));
         }
-        setCheatSheetMarkdown(window.EMBEDDED_CHEAT_SHEET || '');
+
+        if (window.EMBEDDED_CHEAT_SHEET) {
+          setCheatSheetMarkdown(window.EMBEDDED_CHEAT_SHEET);
+        } else {
+          fetch('RESUMO_P2.md')
+            .then(res => res.text())
+            .then(text => setCheatSheetMarkdown(text))
+            .catch(err => console.error("Error loading cheat sheet:", err));
+        }
       }, []);
 
       // Reset answers on exam change
@@ -130,11 +147,11 @@
         return () => clearInterval(interval);
       }, [isTimerRunning, timeLeft, isSubmitted]);
 
-      // KaTeX rendering inside cheat sheet modal
+      // KaTeX rendering inside formulas tab
       useEffect(() => {
-        if (showCheatSheet && window.renderMathInElement) {
+        if ((activeTab === 'formulas' || (splitView && activeTab === 'formulas')) && window.renderMathInElement) {
           setTimeout(() => {
-            const el = document.getElementById('cheat-sheet-content');
+            const el = document.getElementById('formulas-tab-content');
             if (el) {
               window.renderMathInElement(el, {
                 delimiters: [
@@ -146,9 +163,9 @@
                 throwOnError: false
               });
             }
-          }, 100);
+          }, 50);
         }
-      }, [showCheatSheet, cheatSheetMarkdown]);
+      }, [activeTab, cheatSheetMarkdown, formulaSource]);
 
       const formatTime = (seconds) => {
         const h = Math.floor(seconds / 3600);
@@ -186,45 +203,46 @@
       };
 
       const result = isSubmitted ? calculateResult() : null;
+      const totalAnswered = Object.keys(answers).filter(k => answers[k] !== null).length;
 
       return (
-        <div className="flex flex-col h-screen bg-slate-950 text-slate-100 select-none">
+        <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 select-none overflow-hidden">
           {/* Top Navbar */}
-          <header className="min-h-16 py-2 bg-slate-900 border-b border-slate-800 flex flex-wrap items-center justify-between px-4 md:px-6 gap-2 shrink-0 shadow-lg z-20">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-blue-500 flex items-center justify-center font-black text-xl text-white shadow-md shadow-cyan-500/20">
+          <header className="bg-slate-900 border-b border-slate-800 flex flex-wrap items-center justify-between px-3 md:px-6 py-2.5 shrink-0 shadow-lg z-20 gap-2">
+            <div className="flex items-center space-x-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 to-blue-500 flex items-center justify-center font-black text-lg text-white shadow-md shadow-cyan-500/20 shrink-0">
                 F2
               </div>
               <div>
-                <h1 className="font-bold text-lg text-white leading-tight flex items-center gap-2">
-                  Simulador de Física 2 <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60">P2</span>
+                <h1 className="font-bold text-sm md:text-base text-white leading-tight flex items-center gap-1.5">
+                  Simulador de Física 2 <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60">P2</span>
                 </h1>
-                <p className="text-xs text-slate-400">Banco de Provas & Gabarito Interativo</p>
+                <p className="text-[11px] text-slate-400 hidden sm:block">Treino sem spoilers & Correção Automática</p>
               </div>
             </div>
 
             {/* Exam Selector */}
-            <div className="flex items-center space-x-3">
-              <label className="text-xs font-medium text-slate-400">Prova:</label>
+            <div className="flex items-center space-x-2">
+              <span className="text-xs text-slate-400 font-medium hidden sm:inline">Prova:</span>
               <select 
                 value={selectedExam ? selectedExam.id : ''}
                 onChange={(e) => {
                   const exam = exams.find(x => x.id === e.target.value);
                   setSelectedExam(exam);
                 }}
-                className="bg-slate-800 text-cyan-300 font-semibold text-sm rounded-lg px-3 py-1.5 border border-slate-700 hover:border-cyan-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all cursor-pointer shadow-inner"
+                className="bg-slate-800 text-cyan-300 font-semibold text-xs md:text-sm rounded-lg px-2.5 py-1.5 border border-slate-700 hover:border-cyan-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all cursor-pointer shadow-inner max-w-[200px] sm:max-w-[280px]"
               >
                 {exams.map(e => (
                   <option key={e.id} value={e.id}>
-                    {e.title} {e.gabarito.length > 0 ? `(${e.gabarito.length} questões com gabarito)` : ''}
+                    {e.title} {e.gabarito.length > 0 ? `(${e.gabarito.length} Q)` : ''}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* Timer & Actions */}
-            <div className="flex items-center space-x-4">
-              <div className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg font-mono text-sm font-bold border transition-all ${
+            {/* Timer & Finish Button */}
+            <div className="flex items-center space-x-2 md:space-x-3 ml-auto sm:ml-0">
+              <div className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-lg font-mono text-xs md:text-sm font-bold border transition-all ${
                 timeLeft < 600 
                   ? 'bg-rose-950/60 text-rose-400 border-rose-800 animate-pulse' 
                   : isTimerRunning 
@@ -235,18 +253,11 @@
                 <span>{formatTime(timeLeft)}</span>
                 <button 
                   onClick={() => setIsTimerRunning(!isTimerRunning)}
-                  className="ml-1.5 text-xs text-slate-400 hover:text-white underline"
+                  className="ml-1 text-[11px] text-slate-400 hover:text-white underline"
                 >
                   {isTimerRunning ? 'Pausar' : 'Iniciar'}
                 </button>
               </div>
-
-              <button
-                onClick={() => setShowCheatSheet(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-600/30 font-medium text-sm transition-all"
-              >
-                <span>📖</span> Resumo P2
-              </button>
 
               {!isSubmitted ? (
                 <button
@@ -254,11 +265,12 @@
                     if (confirm('Deseja realmente entregar e corrigir o cartão de respostas?')) {
                       setIsSubmitted(true);
                       setIsTimerRunning(false);
+                      setActiveTab('card');
                     }
                   }}
-                  className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-sm shadow-md shadow-emerald-600/20 transition-all active:scale-95"
+                  className="px-3 md:px-4 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-xs md:text-sm shadow-md shadow-emerald-600/20 transition-all active:scale-95 shrink-0"
                 >
-                  Entregar Prova
+                  Entregar
                 </button>
               ) : (
                 <button
@@ -267,78 +279,121 @@
                     setAnswers({});
                     setTimeLeft(7200);
                   }}
-                  className="px-4 py-1.5 rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white font-semibold text-sm transition-all"
+                  className="px-3 md:px-4 py-1.5 rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white font-semibold text-xs md:text-sm transition-all shrink-0"
                 >
-                  Refazer Prova
+                  Refazer
                 </button>
               )}
             </div>
           </header>
 
-          {/* Main Workspace: Left (PDF View) + Right (Bubble Sheet) */}
-          <div className="md:hidden flex border-b border-slate-800 bg-slate-900 text-xs font-bold shrink-0">
+          {/* 📱 3 Navigation Tabs (Available on Mobile & Quick-Switch on Desktop) */}
+          <nav className="flex border-b border-slate-800 bg-slate-900/95 text-xs md:text-sm font-bold shrink-0 shadow-md">
             <button
-              onClick={() => setMobileTab('exam')}
-              className={`flex-1 py-2.5 text-center transition-all flex items-center justify-center gap-1.5 ${
-                mobileTab === 'exam' ? 'bg-slate-800 text-cyan-400 border-b-2 border-cyan-500' : 'text-slate-400'
+              onClick={() => setActiveTab('exam')}
+              className={`flex-1 py-3 text-center transition-all flex items-center justify-center gap-2 border-b-2 ${
+                activeTab === 'exam' 
+                  ? 'bg-slate-800/90 text-cyan-400 border-cyan-400 shadow-inner' 
+                  : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-800/40'
               }`}
             >
-              <span>📄</span> Ver Prova
+              <span className="text-base">📄</span> 
+              <span>Ver Prova</span>
+              {selectedExam && (
+                <span className="hidden sm:inline-block text-[10px] px-1.5 py-0.2 rounded bg-slate-700 text-slate-300 font-mono">
+                  {selectedExam.totalPages} pág
+                </span>
+              )}
             </button>
+
             <button
-              onClick={() => setMobileTab('card')}
-              className={`flex-1 py-2.5 text-center transition-all flex items-center justify-center gap-1.5 ${
-                mobileTab === 'card' ? 'bg-slate-800 text-cyan-400 border-b-2 border-cyan-500' : 'text-slate-400'
+              onClick={() => setActiveTab('card')}
+              className={`flex-1 py-3 text-center transition-all flex items-center justify-center gap-2 border-b-2 ${
+                activeTab === 'card' 
+                  ? 'bg-slate-800/90 text-cyan-400 border-cyan-400 shadow-inner' 
+                  : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-800/40'
               }`}
             >
-              <span>📝</span> Cartão Resposta ({Object.keys(answers).filter(k => answers[k] !== null).length})
+              <span className="text-base">📝</span> 
+              <span>Cartão Resposta</span>
+              <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                isSubmitted 
+                  ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' 
+                  : totalAnswered > 0 
+                    ? 'bg-cyan-950 text-cyan-300 border border-cyan-700' 
+                    : 'bg-slate-800 text-slate-400'
+              }`}>
+                {isSubmitted && result ? `${result.correct}/${result.total}` : `${totalAnswered}/${selectedExam ? selectedExam.totalQuestions : 15}`}
+              </span>
             </button>
-          </div>
-          <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
-            {/* Left: PDF Document Viewer */}
-            <div className={`flex-1 flex flex-col bg-slate-900/50 md:border-r border-slate-800 overflow-hidden ${mobileTab === 'exam' ? 'flex' : 'hidden md:flex'}`}>
-              {/* Document Toolbar */}
-              <div className="h-11 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-4 text-xs text-slate-300">
-                <div className="flex items-center space-x-2">
+
+            <button
+              onClick={() => setActiveTab('formulas')}
+              className={`flex-1 py-3 text-center transition-all flex items-center justify-center gap-2 border-b-2 ${
+                activeTab === 'formulas' 
+                  ? 'bg-slate-800/90 text-indigo-400 border-indigo-400 shadow-inner' 
+                  : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-800/40'
+              }`}
+            >
+              <span className="text-base">📐</span> 
+              <span>Formulário & Resumo</span>
+              <span className="hidden sm:inline-block text-[10px] px-1.5 py-0.2 rounded bg-indigo-950 text-indigo-300 border border-indigo-800/60">
+                P2
+              </span>
+            </button>
+          </nav>
+
+          {/* Main Content Workspace */}
+          <main className="flex-1 flex overflow-hidden relative">
+
+            {/* TAB 1: Visualizador da Prova */}
+            <div className={`flex-1 flex-col bg-slate-950 overflow-hidden ${
+              activeTab === 'exam' ? 'flex' : 'hidden md:flex'
+            } ${splitView && activeTab !== 'exam' ? 'hidden' : ''}`}>
+              {/* Document Sub-Toolbar */}
+              <div className="h-11 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-3 md:px-4 text-xs text-slate-300 shrink-0">
+                <div className="flex items-center space-x-1 sm:space-x-2">
                   <button
                     onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
                     disabled={currentPage === 0 || viewMode === 'scroll'}
-                    className="p-1.5 rounded hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent transition-all"
-                    title="Página Anterior"
+                    className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 disabled:opacity-30 disabled:hover:bg-slate-800 transition-all font-semibold"
                   >
-                    ◀ Anterior
+                    ◀
                   </button>
-                  <span className="font-semibold px-2">
-                    Página {currentPage + 1} de {selectedExam ? selectedExam.totalPages : 1}
+                  <span className="font-semibold px-1 sm:px-2">
+                    Pág. <span className="text-cyan-400 font-mono font-bold">{currentPage + 1}</span> / {selectedExam ? selectedExam.totalPages : 1}
                   </span>
                   <button
                     onClick={() => setCurrentPage(prev => Math.min((selectedExam ? selectedExam.totalPages - 1 : 0), prev + 1))}
                     disabled={!selectedExam || currentPage >= selectedExam.totalPages - 1 || viewMode === 'scroll'}
-                    className="p-1.5 rounded hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent transition-all"
-                    title="Próxima Página"
+                    className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 disabled:opacity-30 disabled:hover:bg-slate-800 transition-all font-semibold"
                   >
-                    Próxima ▶
+                    ▶
                   </button>
                 </div>
 
                 {/* View Controls */}
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 sm:space-x-4">
                   <div className="flex items-center bg-slate-800 rounded-lg p-0.5 border border-slate-700">
                     <button
                       onClick={() => setViewMode('single')}
-                      className={`px-2.5 py-1 rounded-md transition-all ${viewMode === 'single' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400 hover:text-white'}`}
+                      className={`px-2 py-1 rounded-md text-[11px] font-bold transition-all ${
+                        viewMode === 'single' ? 'bg-cyan-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                      }`}
                     >
-                      Página Única
+                      Pág. Única
                     </button>
                     <button
                       onClick={() => setViewMode('scroll')}
-                      className={`px-2.5 py-1 rounded-md transition-all ${viewMode === 'scroll' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400 hover:text-white'}`}
+                      className={`px-2 py-1 rounded-md text-[11px] font-bold transition-all ${
+                        viewMode === 'scroll' ? 'bg-cyan-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                      }`}
                     >
-                      Todas as Páginas
+                      Todas
                     </button>
                   </div>
 
-                  <div className="flex items-center space-x-1.5">
+                  <div className="flex items-center space-x-1">
                     <button
                       onClick={() => setZoom(prev => Math.max(50, prev - 15))}
                       className="w-7 h-7 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold"
@@ -346,9 +401,9 @@
                     >
                       -
                     </button>
-                    <span className="w-12 text-center font-mono font-bold text-cyan-400">{zoom}%</span>
+                    <span className="w-10 text-center font-mono font-bold text-cyan-400 text-xs">{zoom}%</span>
                     <button
-                      onClick={() => setZoom(prev => Math.min(200, prev + 15))}
+                      onClick={() => setZoom(prev => Math.min(220, prev + 15))}
                       className="w-7 h-7 bg-slate-800 hover:bg-slate-700 rounded flex items-center justify-center font-bold"
                       title="Aumentar Zoom"
                     >
@@ -356,7 +411,7 @@
                     </button>
                     <button
                       onClick={() => setZoom(100)}
-                      className="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-slate-300 text-[11px]"
+                      className="hidden sm:inline-block px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-slate-300 text-[10px]"
                     >
                       Reset
                     </button>
@@ -364,12 +419,12 @@
                 </div>
               </div>
 
-              {/* PDF Image Viewport */}
-              <div className="flex-1 overflow-auto custom-scroll p-6 flex justify-center items-start bg-slate-950">
+              {/* PDF Viewer Canvas */}
+              <div className="flex-1 overflow-auto custom-scroll p-3 md:p-6 flex justify-center items-start bg-slate-950">
                 {selectedExam ? (
                   viewMode === 'single' ? (
                     <div 
-                      style={{ width: `${zoom}%`, maxWidth: `${zoom * 9}px` }} 
+                      style={{ width: `${zoom}%`, maxWidth: `${zoom * 8.5}px` }} 
                       className="transition-all duration-150 shadow-2xl rounded-sm overflow-hidden bg-white border border-slate-700"
                     >
                       <img 
@@ -381,13 +436,14 @@
                     </div>
                   ) : (
                     <div 
-                      style={{ width: `${zoom}%`, maxWidth: `${zoom * 9}px` }} 
-                      className="flex flex-col space-y-8 transition-all duration-150"
+                      style={{ width: `${zoom}%`, maxWidth: `${zoom * 8.5}px` }} 
+                      className="flex flex-col space-y-6 transition-all duration-150"
                     >
                       {selectedExam.pages.map((pg, idx) => (
                         <div key={idx} className="shadow-2xl rounded-sm overflow-hidden bg-white border border-slate-700">
-                          <div className="bg-slate-800 text-slate-400 text-xs px-3 py-1 font-semibold border-b border-slate-700">
-                            Página {idx + 1}
+                          <div className="bg-slate-800 text-slate-400 text-xs px-3 py-1 font-semibold border-b border-slate-700 flex justify-between">
+                            <span>Página {idx + 1}</span>
+                            {idx === 1 && <span className="text-cyan-400 font-bold">⭐ Formulário da Prova</span>}
                           </div>
                           <img 
                             src={pg} 
@@ -401,37 +457,39 @@
                   )
                 ) : (
                   <div className="text-slate-500 m-auto text-center">
-                    <p className="text-lg font-semibold">Nenhuma prova selecionada</p>
+                    <p className="text-lg font-semibold">Nenhuma prova carregada</p>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Right: Bubble Sheet & Score Panel */}
-            <div className={`w-full md:w-96 bg-slate-900 flex flex-col shrink-0 overflow-hidden md:border-l border-slate-800 shadow-xl ${mobileTab === 'card' ? 'flex' : 'hidden md:flex'}`}>
-              {/* Bubble Sheet Header */}
-              <div className="p-4 border-b border-slate-800 bg-slate-900/90">
+            {/* TAB 2: Cartão Resposta Interativo */}
+            <div className={`w-full md:w-96 bg-slate-900 flex flex-col shrink-0 overflow-hidden md:border-l border-slate-800 shadow-2xl ${
+              activeTab === 'card' ? 'flex' : 'hidden md:flex'
+            }`}>
+              {/* Header do Cartão */}
+              <div className="p-3.5 border-b border-slate-800 bg-slate-900/95 shrink-0">
                 <div className="flex items-center justify-between">
                   <h2 className="font-bold text-sm text-slate-100 flex items-center gap-2">
-                    <span>📝</span> Cartão Resposta
+                    <span>📝</span> Cartão de Respostas
                   </h2>
                   <span className="text-xs bg-slate-800 text-cyan-400 font-semibold px-2.5 py-1 rounded-full border border-slate-700">
-                    {Object.keys(answers).filter(k => answers[k] !== null).length} / {selectedExam ? selectedExam.totalQuestions : 15} marcadas
+                    {totalAnswered} / {selectedExam ? selectedExam.totalQuestions : 15}
                   </span>
                 </div>
 
                 {/* Score Summary Box (when submitted) */}
                 {isSubmitted && result && (
-                  <div className="mt-3 p-3.5 rounded-xl bg-slate-950 border border-cyan-800/60 shadow-inner">
+                  <div className="mt-3 p-3.5 rounded-xl bg-slate-950 border border-cyan-800/60 shadow-inner animate-in fade-in">
                     <div className="flex items-center justify-between mb-2">
                       <div>
-                        <p className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Resultado Final</p>
+                        <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Resultado Final</p>
                         <p className="text-2xl font-black text-cyan-300">
-                          {result.correct} <span className="text-sm font-normal text-slate-400">/ {result.total} acertos</span>
+                          {result.correct} <span className="text-xs font-normal text-slate-400">/ {result.total} acertos</span>
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Nota</p>
+                        <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Nota</p>
                         <p className={`text-2xl font-black ${
                           parseFloat(result.grade) >= 6 ? 'text-emerald-400' : 'text-rose-400'
                         }`}>
@@ -456,7 +514,7 @@
               </div>
 
               {/* Questions List */}
-              <div className="flex-1 overflow-y-auto custom-scroll p-4 space-y-2.5">
+              <div className="flex-1 overflow-y-auto custom-scroll p-3 md:p-4 space-y-2">
                 {selectedExam && Array.from({ length: selectedExam.totalQuestions }).map((_, idx) => {
                   const userAnswer = answers[idx];
                   const correctAnswer = selectedExam.gabarito && selectedExam.gabarito[idx];
@@ -478,7 +536,7 @@
                   return (
                     <div 
                       key={idx} 
-                      className={`p-2.5 rounded-xl border transition-all duration-150 flex items-center justify-between ${statusClass}`}
+                      className={`p-2 sm:p-2.5 rounded-xl border transition-all duration-150 flex items-center justify-between ${statusClass}`}
                     >
                       {/* Question label */}
                       <div className="flex items-center space-x-2">
@@ -487,11 +545,11 @@
                         </span>
                         {isSubmitted && hasGabarito && (
                           userAnswer === correctAnswer ? (
-                            <span className="text-xs font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800">
+                            <span className="text-[11px] font-bold text-emerald-400 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-800">
                               ✓ Correto
                             </span>
                           ) : (
-                            <span className="text-xs font-bold text-rose-400 bg-rose-950/80 px-1.5 py-0.5 rounded border border-rose-800">
+                            <span className="text-[11px] font-bold text-rose-400 bg-rose-950/80 px-1.5 py-0.5 rounded border border-rose-800">
                               Gab: <strong className="text-white underline">{correctAnswer}</strong>
                             </span>
                           )
@@ -499,13 +557,13 @@
                       </div>
 
                       {/* Options: A B C D E */}
-                      <div className="flex items-center space-x-1.5">
+                      <div className="flex items-center space-x-1 sm:space-x-1.5">
                         {['A', 'B', 'C', 'D', 'E'].map(opt => {
                           const isSelected = userAnswer === opt;
                           const isCorrect = isSubmitted && correctAnswer === opt;
                           const isWrong = isSubmitted && isSelected && correctAnswer !== opt;
 
-                          let btnStyle = 'bg-slate-800/80 text-slate-400 hover:bg-slate-700 hover:text-white border-slate-700';
+                          let btnStyle = 'bg-slate-800/90 text-slate-400 hover:bg-slate-700 hover:text-white border-slate-700';
 
                           if (isSubmitted) {
                             if (isCorrect) {
@@ -524,7 +582,7 @@
                               key={opt}
                               onClick={() => handleSelectOption(idx, opt)}
                               disabled={isSubmitted}
-                              className={`w-8 h-8 rounded-lg text-xs font-bold border transition-all duration-100 flex items-center justify-center ${btnStyle}`}
+                              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-bold border transition-all duration-100 flex items-center justify-center active:scale-95 ${btnStyle}`}
                             >
                               {opt}
                             </button>
@@ -537,9 +595,9 @@
               </div>
 
               {/* Bottom Quick Action */}
-              <div className="p-3 bg-slate-950 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
-                <span>Clique na alternativa para marcar ou desmarcar.</span>
-                {!isSubmitted && (
+              <div className="p-3 bg-slate-950 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400 shrink-0">
+                <span>Clique para marcar/desmarcar.</span>
+                {!isSubmitted && totalAnswered > 0 && (
                   <button 
                     onClick={() => setAnswers({})}
                     className="text-rose-400 hover:text-rose-300 underline font-medium"
@@ -549,47 +607,70 @@
                 )}
               </div>
             </div>
-          </div>
 
-          {/* Modal: Cheat Sheet / Resumo P2 */}
-          {showCheatSheet && (
-            <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-6">
-              <div className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-                {/* Modal Header */}
-                <div className="h-14 bg-slate-800/80 border-b border-slate-700 flex items-center justify-between px-6 shrink-0">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-xl">📖</span>
-                    <h3 className="font-bold text-slate-100 text-base">Super Colinha & Formulário de Bolso (P2)</h3>
+            {/* TAB 3: Formulário & Colinha Dedicada */}
+            <div className={`flex-1 flex flex-col bg-slate-900/95 overflow-hidden ${
+              activeTab === 'formulas' ? 'flex' : 'hidden'
+            }`}>
+              {/* Formula Source Sub-bar */}
+              <div className="h-11 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-4 text-xs shrink-0">
+                <div className="flex items-center space-x-2">
+                  <span className="font-bold text-slate-300">Fonte:</span>
+                  <button
+                    onClick={() => setFormulaSource('colinha')}
+                    className={`px-3 py-1 rounded-lg font-semibold transition-all ${
+                      formulaSource === 'colinha' 
+                        ? 'bg-indigo-600 text-white shadow' 
+                        : 'bg-slate-800 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    📖 Super Resumo (KaTeX)
+                  </button>
+                  <button
+                    onClick={() => setFormulaSource('oficial')}
+                    className={`px-3 py-1 rounded-lg font-semibold transition-all ${
+                      formulaSource === 'oficial' 
+                        ? 'bg-indigo-600 text-white shadow' 
+                        : 'bg-slate-800 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    📄 Formulário Oficial da Prova
+                  </button>
+                </div>
+
+                <span className="text-[11px] text-slate-400 hidden sm:inline">
+                  {formulaSource === 'colinha' ? 'Resumo completo de P2' : 'Página 2 da prova selecionada'}
+                </span>
+              </div>
+
+              {/* Formula Content Area */}
+              <div className="flex-1 overflow-y-auto custom-scroll p-4 md:p-8 bg-slate-950">
+                {formulaSource === 'colinha' ? (
+                  <div className="max-w-4xl mx-auto text-sm text-slate-200 latex-content">
+                    <div 
+                      id="formulas-tab-content"
+                      dangerouslySetInnerHTML={{ __html: marked.parse(cheatSheetMarkdown || '# Carregando Resumo...') }}
+                    />
                   </div>
-                  <button
-                    onClick={() => setShowCheatSheet(false)}
-                    className="w-8 h-8 rounded-lg bg-slate-700 hover:bg-rose-600 text-slate-300 hover:text-white flex items-center justify-center font-bold text-sm transition-all"
-                  >
-                    ✕
-                  </button>
-                </div>
-
-                {/* Modal Content */}
-                <div className="flex-1 overflow-y-auto custom-scroll p-8 text-sm text-slate-200 latex-content">
-                  <div 
-                    id="cheat-sheet-content"
-                    dangerouslySetInnerHTML={{ __html: marked.parse(cheatSheetMarkdown || '# Carregando Resumo...') }}
-                  />
-                </div>
-
-                {/* Modal Footer */}
-                <div className="h-12 bg-slate-800 border-t border-slate-700 flex items-center justify-between px-6 text-xs text-slate-400 shrink-0">
-                  <span>Dica: Use esta colinha no início para destravar as contas e depois simule no seco!</span>
-                  <button
-                    onClick={() => setShowCheatSheet(false)}
-                    className="px-4 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-lg transition-all"
-                  >
-                    Voltar para a Prova
-                  </button>
-                </div>
+                ) : (
+                  <div className="flex justify-center items-start">
+                    {selectedExam && selectedExam.pages.length > 1 ? (
+                      <div className="shadow-2xl rounded overflow-hidden bg-white border border-slate-700 max-w-3xl w-full">
+                        <img 
+                          src={selectedExam.pages[1]} 
+                          alt="Formulário Oficial da Prova"
+                          className="w-full h-auto block select-none pointer-events-none"
+                        />
+                      </div>
+                    ) : (
+                      <p className="text-slate-400">Formulário da prova não encontrado.</p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
-          )}
+
+          </main>
         </div>
       );
     }
