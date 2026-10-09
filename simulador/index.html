@@ -93,6 +93,7 @@
       const [showCheatSheet, setShowCheatSheet] = useState(false);
       const [cheatSheetMarkdown, setCheatSheetMarkdown] = useState('');
       const [viewMode, setViewMode] = useState('single'); // 'single' or 'scroll'
+      const [mobileTab, setMobileTab] = useState('exam'); // 'exam' or 'card'
 
       // Load exams and cheat sheet from embedded data (with fetch fallback)
       useEffect(() => {
@@ -189,7 +190,7 @@
       return (
         <div className="flex flex-col h-screen bg-slate-950 text-slate-100 select-none">
           {/* Top Navbar */}
-          <header className="h-16 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-6 shrink-0 shadow-lg z-20">
+          <header className="min-h-16 py-2 bg-slate-900 border-b border-slate-800 flex flex-wrap items-center justify-between px-4 md:px-6 gap-2 shrink-0 shadow-lg z-20">
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-blue-500 flex items-center justify-center font-black text-xl text-white shadow-md shadow-cyan-500/20">
                 F2
@@ -275,9 +276,27 @@
           </header>
 
           {/* Main Workspace: Left (PDF View) + Right (Bubble Sheet) */}
-          <div className="flex-1 flex overflow-hidden">
+          <div className="md:hidden flex border-b border-slate-800 bg-slate-900 text-xs font-bold shrink-0">
+            <button
+              onClick={() => setMobileTab('exam')}
+              className={`flex-1 py-2.5 text-center transition-all flex items-center justify-center gap-1.5 ${
+                mobileTab === 'exam' ? 'bg-slate-800 text-cyan-400 border-b-2 border-cyan-500' : 'text-slate-400'
+              }`}
+            >
+              <span>📄</span> Ver Prova
+            </button>
+            <button
+              onClick={() => setMobileTab('card')}
+              className={`flex-1 py-2.5 text-center transition-all flex items-center justify-center gap-1.5 ${
+                mobileTab === 'card' ? 'bg-slate-800 text-cyan-400 border-b-2 border-cyan-500' : 'text-slate-400'
+              }`}
+            >
+              <span>📝</span> Cartão Resposta ({Object.keys(answers).filter(k => answers[k] !== null).length})
+            </button>
+          </div>
+          <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
             {/* Left: PDF Document Viewer */}
-            <div className="flex-1 flex flex-col bg-slate-900/50 border-r border-slate-800 overflow-hidden">
+            <div className={`flex-1 flex flex-col bg-slate-900/50 md:border-r border-slate-800 overflow-hidden ${mobileTab === 'exam' ? 'flex' : 'hidden md:flex'}`}>
               {/* Document Toolbar */}
               <div className="h-11 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-4 text-xs text-slate-300">
                 <div className="flex items-center space-x-2">
@@ -389,7 +408,7 @@
             </div>
 
             {/* Right: Bubble Sheet & Score Panel */}
-            <div className="w-96 bg-slate-900 flex flex-col shrink-0 overflow-hidden border-l border-slate-800 shadow-xl">
+            <div className={`w-full md:w-96 bg-slate-900 flex flex-col shrink-0 overflow-hidden md:border-l border-slate-800 shadow-xl ${mobileTab === 'card' ? 'flex' : 'hidden md:flex'}`}>
               {/* Bubble Sheet Header */}
               <div className="p-4 border-b border-slate-800 bg-slate-900/90">
                 <div className="flex items-center justify-between">
