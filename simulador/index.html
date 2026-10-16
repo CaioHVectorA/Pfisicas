@@ -79,6 +79,8 @@
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
+    const FORMULA_SECTIONS = [["Constantes", "$$g=9{,}8\\,\\mathrm{m/s^2},\\qquad m_e=9{,}11\\times10^{-31}\\,\\mathrm{kg}$$\n$$m_p=1{,}67\\times10^{-27}\\,\\mathrm{kg},\\qquad e=1{,}6\\times10^{-19}\\,\\mathrm C$$\n$$\\varepsilon_0=8{,}85\\times10^{-12}\\,\\mathrm{C^2/(N\\,m^2)}$$\n$$K=\\frac{1}{4\\pi\\varepsilon_0}=8{,}99\\times10^9\\,\\mathrm{N\\,m^2/C^2}$$"], ["Integrais e aproximação binomial", "$$\\int\\frac{du}{\\sqrt{u^2+a^2}}=\\ln\\!\\left(u+\\sqrt{u^2+a^2}\\right)+C$$\n$$\\int\\frac{u\\,du}{(u^2+a^2)^{3/2}}=-\\frac{1}{\\sqrt{u^2+a^2}}+C$$\n$$\\int\\frac{du}{(u^2+a^2)^{3/2}}=\\frac{u}{a^2\\sqrt{u^2+a^2}}+C$$\n$$\\int\\frac{u\\,du}{\\sqrt{u^2+a^2}}=\\sqrt{u^2+a^2}+C$$\n$$ (1+x)^n\\approx1+nx,\\qquad |x|\\ll1$$"], ["Força, campo e fluxo elétrico", "$$\\vec F=q\\vec E,\\qquad \\vec E=K\\frac{Q}{r^2}\\hat r,\\qquad d\\vec E=K\\frac{dq}{r^2}\\hat r$$\n$$\\vec\\tau=\\vec p\\times\\vec E,\\qquad \\Delta U=U_f-U_i=-W_{\\mathrm{elet}}$$\n$$\\Phi_E=\\oint_S\\vec E\\cdot d\\vec A=\\frac{Q_{\\mathrm{int}}}{\\varepsilon_0}$$\n$$U=qV,\\qquad U=K\\frac{q_1q_2}{r},\\qquad \\vec p=q\\vec s,\\qquad U=-\\vec p\\cdot\\vec E$$"], ["Potencial e energia elétrica", "$$V=K\\frac{q}{r},\\qquad dV=K\\frac{dq}{r}$$\n$$U=\\sum_{i<j}^{N}K\\frac{q_iq_j}{r_{ij}}$$\n$$\\vec E=-\\nabla V=-\\left(\\frac{\\partial V}{\\partial x}\\hat i+\\frac{\\partial V}{\\partial y}\\hat j+\\frac{\\partial V}{\\partial z}\\hat k\\right)$$\n$$\\Delta V=V_f-V_i=-\\int_i^f\\vec E\\cdot d\\vec s$$"], ["Capacitância e dielétricos", "$$C=\\frac{Q}{\\Delta V_C},\\qquad C=\\frac{\\varepsilon_0 A}{d},\\qquad \\kappa=\\frac{E_0}{E},\\qquad C=\\kappa C_0$$\n$$U_C=\\frac{Q^2}{2C}=\\frac12 C(\\Delta V_C)^2,\\qquad u_E=\\frac12\\varepsilon E^2$$\n$$C_{\\mathrm{eq,paralelo}}=\\sum_{i=1}^N C_i,\\qquad \\frac{1}{C_{\\mathrm{eq,serie}}}=\\sum_{i=1}^N\\frac1{C_i}$$"], ["Corrente, resistência e potência", "$$I=\\frac{dQ}{dt},\\qquad J=\\frac{I}{A},\\qquad J=n_e e v_d,\\qquad \\vec J=\\sigma\\vec E$$\n$$\\mathcal E=\\frac{W_{\\mathrm{quim}}}{q},\\qquad \\rho=\\frac1\\sigma,\\qquad R=\\frac{\\rho L}{A},\\qquad I=\\frac{\\Delta V}{R}$$\n$$P_{\\mathrm{bat}}=\\mathcal E I,\\qquad P_R=I\\Delta V_R=RI^2=\\frac{(\\Delta V_R)^2}{R}$$\n$$R_{\\mathrm{eq,serie}}=\\sum_{i=1}^N R_i,\\qquad \\frac1{R_{\\mathrm{eq,paralelo}}}=\\sum_{i=1}^N\\frac1{R_i}$$"], ["Circuitos RC", "$$\\tau=RC$$\nDescarga:\n$$Q(t)=Q_0e^{-t/\\tau},\\qquad |I(t)|=\\frac{Q_0}{\\tau}e^{-t/\\tau}$$\nCarga:\n$$Q(t)=C\\mathcal E\\left(1-e^{-t/\\tau}\\right),\\qquad I(t)=\\frac{\\mathcal E}{R}e^{-t/\\tau}$$\nO sinal da corrente na descarga depende do sentido de referência escolhido."]];
+
     function App() {
       const [exams, setExams] = useState([]);
       const [selectedExam, setSelectedExam] = useState(null);
@@ -147,24 +149,20 @@
         return () => clearInterval(interval);
       }, [isTimerRunning, timeLeft, isSubmitted]);
 
-      // KaTeX rendering inside extra summary when opened
+      // Render the reference sheet and optional summary after React updates the DOM.
       useEffect(() => {
-        if (activeTab === 'formulas' && showExtraSummary && window.renderMathInElement) {
-          setTimeout(() => {
-            const el = document.getElementById('extra-summary-content');
-            if (el) {
-              window.renderMathInElement(el, {
-                delimiters: [
-                  {left: '$$', right: '$$', display: true},
-                  {left: '$', right: '$', display: false},
-                  {left: '\\(', right: '\\)', display: false},
-                  {left: '\\[', right: '\\]', display: true}
-                ],
-                throwOnError: false
-              });
-            }
-          }, 50);
-        }
+        if (activeTab !== 'formulas') return;
+        const timer = setTimeout(() => {
+          if (!window.renderMathInElement) return;
+          ['formula-reference', 'extra-summary-content'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) window.renderMathInElement(el, {
+              delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}],
+              throwOnError: false
+            });
+          });
+        }, 50);
+        return () => clearTimeout(timer);
       }, [activeTab, showExtraSummary, fullSummaryMarkdown]);
 
       const formatTime = (seconds) => {
@@ -664,26 +662,22 @@
               {/* Formula Content Area */}
               <div className="flex-1 overflow-y-auto custom-scroll p-4 md:p-8 bg-slate-950 flex flex-col items-center">
                 
-                <figure
-                  style={{ width: `${formulaZoom}%`, maxWidth: `${formulaZoom * 8.5}px`, flexShrink: 0 }}
+                <section
+                  style={{ width: `${formulaZoom}%`, maxWidth: `${formulaZoom * 10}px`, flexShrink: 0 }}
                   className="transition-all duration-150"
                 >
-                  <figcaption className="text-sm text-slate-300 mb-3">
-                    Consulte as constantes, integrais e leis físicas da imagem de referência.
-                    Use o zoom para ampliar os detalhes.
-                  </figcaption>
-                  <div className="relative overflow-hidden rounded-lg bg-white shadow-2xl border border-slate-700" style={{ aspectRatio: '576 / 436' }}>
-                    <img
-                      src="assets/referencia/formulario-fisica-2.jpg"
-                      alt="Formulário de Física 2: constantes, fórmulas matemáticas, aproximação binomial, campo e potencial elétrico, capacitores, corrente, resistência, potência e circuitos RC."
-                      className="absolute left-0 w-full h-auto block"
-                      style={{ top: '-96.79%' }}
-                    />
+                  <p className="text-sm text-slate-300 mb-4">Fórmulas da imagem, reconstruídas em LaTeX para leitura nítida em qualquer zoom.</p>
+                  <div id="formula-reference" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {FORMULA_SECTIONS.map(([title, content]) => (
+                      <article key={title} className="min-w-0 rounded-xl bg-white text-slate-900 p-4 md:p-5 shadow-lg">
+                        <h2 className="font-bold text-base border-b border-slate-200 pb-2 mb-3">{title}</h2>
+                        <div className="text-sm [&_.katex-display]:overflow-x-auto [&_.katex-display]:overflow-y-hidden" dangerouslySetInnerHTML={{ __html: marked.parse(content) }} />
+                      </article>
+                    ))}
                   </div>
-                  <a href="assets/referencia/formulario-fisica-2.jpg" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-indigo-300 underline hover:text-indigo-200">
-                    Abrir imagem original em nova aba
-                  </a>
-                </figure>
+                  <p className="text-xs text-slate-400 mt-4">A imagem não inclui fórmulas de magnetismo. Consulte o resumo extra para esse conteúdo.</p>
+                  <a href="assets/referencia/formulario-fisica-2.jpg" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-indigo-300 underline hover:text-indigo-200">Conferir imagem original</a>
+                </section>
 
                 {/* 2. SEÇÃO EXTRA (Apenas quando o Checkbox for marcado) */}
                 {showExtraSummary && (
