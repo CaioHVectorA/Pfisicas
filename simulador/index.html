@@ -205,8 +205,6 @@
       const result = isSubmitted ? calculateResult() : null;
       const totalAnswered = Object.keys(answers).filter(k => answers[k] !== null).length;
 
-      // Pega as páginas de formulário oficial da prova (Página 1 e Página 2)
-      const officialFormulaPages = selectedExam ? selectedExam.pages.slice(0, Math.min(selectedExam.totalPages, 2)) : [];
 
       return (
         <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 select-none overflow-hidden">
@@ -611,7 +609,7 @@
               </div>
             </div>
 
-            {/* TAB 3: Formulário Oficial da Prova + Checkbox de Resumo Extra */}
+            {/* TAB 3: Imagem de referência + resumo extra */}
             <div className={`flex-1 flex flex-col bg-slate-900/95 overflow-hidden ${
               activeTab === 'formulas' ? 'flex' : 'hidden'
             }`}>
@@ -620,13 +618,11 @@
                 {/* Title & Info */}
                 <div className="flex items-center space-x-2">
                   <span className="font-extrabold text-sm text-indigo-300 flex items-center gap-1.5">
-                    <span>📄</span> Formulário Oficial da Prova
+                    <span>📄</span> Referência de Fórmulas
                   </span>
-                  {selectedExam && (
-                    <span className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono border border-slate-700 hidden sm:inline">
-                      {selectedExam.title} (Págs. 1 e 2)
-                    </span>
-                  )}
+                  <span className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 hidden sm:inline">
+                    Constantes · Eletrostática · Circuitos
+                  </span>
                 </div>
 
                 {/* Right Controls: Checkbox & Zoom */}
@@ -668,28 +664,26 @@
               {/* Formula Content Area */}
               <div className="flex-1 overflow-y-auto custom-scroll p-4 md:p-8 bg-slate-950 flex flex-col items-center">
                 
-                {/* 1. SEÇÃO PRINCIPAL: Folha de Fórmulas Oficial da Própria Prova (Páginas 1 e 2 juntas) */}
-                <div 
-                  style={{ width: `${formulaZoom}%`, maxWidth: `${formulaZoom * 8.5}px` }} 
-                  className="space-y-6 transition-all duration-150 w-full"
+                <figure
+                  style={{ width: `${formulaZoom}%`, maxWidth: `${formulaZoom * 8.5}px`, flexShrink: 0 }}
+                  className="transition-all duration-150"
                 >
-                  {officialFormulaPages.map((pg, idx) => (
-                    <div key={idx} className="shadow-2xl rounded overflow-hidden bg-white border border-slate-700">
-                      <div className="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 font-semibold border-b border-slate-700 flex justify-between">
-                        <span className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
-                          Folha da Prova — Página {idx + 1} {idx === 0 ? '(Instruções, Constantes & Fórmulas)' : '(Continuação das Fórmulas)'}
-                        </span>
-                        <span className="text-indigo-400 font-bold text-[11px]">Oficial do Exame</span>
-                      </div>
-                      <img 
-                        src={pg} 
-                        alt={`Formulário da Prova Página ${idx + 1}`}
-                        className="w-full h-auto block select-none pointer-events-none"
-                      />
-                    </div>
-                  ))}
-                </div>
+                  <figcaption className="text-sm text-slate-300 mb-3">
+                    Consulte as constantes, integrais e leis físicas da imagem de referência.
+                    Use o zoom para ampliar os detalhes.
+                  </figcaption>
+                  <div className="relative overflow-hidden rounded-lg bg-white shadow-2xl border border-slate-700" style={{ aspectRatio: '576 / 436' }}>
+                    <img
+                      src="assets/referencia/formulario-fisica-2.jpg"
+                      alt="Formulário de Física 2: constantes, fórmulas matemáticas, aproximação binomial, campo e potencial elétrico, capacitores, corrente, resistência, potência e circuitos RC."
+                      className="absolute left-0 w-full h-auto block"
+                      style={{ top: '-96.79%' }}
+                    />
+                  </div>
+                  <a href="assets/referencia/formulario-fisica-2.jpg" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm text-indigo-300 underline hover:text-indigo-200">
+                    Abrir imagem original em nova aba
+                  </a>
+                </figure>
 
                 {/* 2. SEÇÃO EXTRA (Apenas quando o Checkbox for marcado) */}
                 {showExtraSummary && (
