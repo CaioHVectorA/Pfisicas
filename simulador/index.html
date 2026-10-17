@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simulador de Provas - Física 2 (P2)</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -66,6 +66,15 @@
       margin: 12px 0;
       border-radius: 0 8px 8px 0;
     }
+    #answer-card:not([open]) { display: none; }
+    #answer-card::backdrop { background: rgb(2 6 23 / 0.75); backdrop-filter: blur(4px); }
+    #answer-card { width: min(36rem, calc(100vw - 1rem)); height: min(85dvh, 52rem); max-height: calc(100dvh - 2rem); margin: auto; padding: 0; color: inherit; }
+    .app-shell { height: 100vh; height: 100dvh; }
+    @media (max-width: 639px) {
+      .answer-option { min-width: 40px; min-height: 44px; }
+      .answer-row { flex-wrap: wrap; gap: 8px; }
+      .document-toolbar { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px; padding-top: 6px; padding-bottom: 6px; }
+    }
   </style>
 </head>
 <body class="h-screen w-screen flex flex-col overflow-hidden bg-slate-950 text-slate-100">
@@ -91,7 +100,14 @@
       const [isSubmitted, setIsSubmitted] = useState(false);
       const [fullSummaryMarkdown, setFullSummaryMarkdown] = useState('');
       const [viewMode, setViewMode] = useState('single'); // 'single' or 'scroll'
-      const [activeTab, setActiveTab] = useState('exam'); // 'exam', 'card', 'formulas'
+      const answerCardRef = useRef(null);
+      const [isCardOpen, setIsCardOpen] = useState(false);
+      useEffect(() => {
+        const dialog = answerCardRef.current;
+        if (isCardOpen && !dialog.open) dialog.showModal();
+        else if (!isCardOpen && dialog.open) dialog.close();
+      }, [isCardOpen]);
+      const [activeTab, setActiveTab] = useState('exam'); // 'exam' or 'formulas'; answers open in a dialog
       const [showExtraSummary, setShowExtraSummary] = useState(false); // Checkbox: Mostrar ou não o resumo extra
 
       // Load exams and cheat sheet
@@ -207,7 +223,7 @@
 
 
       return (
-        <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 select-none overflow-hidden">
+        <div className="app-shell flex flex-col w-full min-w-0 bg-slate-950 text-slate-100 select-none overflow-hidden">
           {/* Top Navbar */}
           <header className="bg-slate-900 border-b border-slate-800 flex flex-wrap items-center justify-between px-3 md:px-6 py-2.5 shrink-0 shadow-lg z-20 gap-2">
             <div className="flex items-center space-x-3">
@@ -266,7 +282,7 @@
                     if (confirm('Deseja realmente entregar e corrigir o cartão de respostas?')) {
                       setIsSubmitted(true);
                       setIsTimerRunning(false);
-                      setActiveTab('card');
+                      setIsCardOpen(true);
                     }
                   }}
                   className="px-3 md:px-4 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-xs md:text-sm shadow-md shadow-emerald-600/20 transition-all active:scale-95 shrink-0"
@@ -308,15 +324,18 @@
             </button>
 
             <button
-              onClick={() => setActiveTab('card')}
+              onClick={() => setIsCardOpen(true)}
+              aria-haspopup="dialog"
+              aria-controls="answer-card"
+              aria-expanded={isCardOpen}
               className={`flex-1 py-3 text-center transition-all flex items-center justify-center gap-2 border-b-2 ${
-                activeTab === 'card' 
+                isCardOpen
                   ? 'bg-slate-800/90 text-cyan-400 border-cyan-400 shadow-inner' 
                   : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-slate-800/40'
               }`}
             >
               <span className="text-base">📝</span> 
-              <span>Cartão Resposta</span>
+              <span>Respostas</span>
               <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
                 isSubmitted 
                   ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' 
@@ -345,14 +364,14 @@
           </nav>
 
           {/* Main Content Workspace */}
-          <main className="flex-1 flex overflow-hidden relative">
+          <main className="flex-1 min-h-0 min-w-0 flex overflow-hidden relative">
 
             {/* TAB 1: Visualizador da Prova */}
-            <div className={`flex-1 flex flex-col bg-slate-950 overflow-hidden ${
-              activeTab === 'exam' ? 'flex' : 'hidden md:flex'
+            <div className={`flex-1 min-w-0 flex flex-col bg-slate-950 overflow-hidden ${
+              activeTab === 'exam' ? 'flex' : 'hidden'
             }`}>
               {/* Document Sub-Toolbar */}
-              <div className="h-11 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-3 md:px-4 text-xs text-slate-300 shrink-0">
+              <div className="document-toolbar h-11 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-3 md:px-4 text-xs text-slate-300 shrink-0">
                 <div className="flex items-center space-x-1 sm:space-x-2">
                   <button
                     onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
@@ -465,15 +484,21 @@
             </div>
 
             {/* TAB 2: Cartão Resposta Interativo */}
-            <div className={`w-full md:w-96 bg-slate-900 flex flex-col shrink-0 overflow-hidden md:border-l border-slate-800 shadow-2xl ${
-              activeTab === 'card' ? 'flex' : 'hidden md:flex'
-            }`}>
+            <dialog
+              id="answer-card"
+              ref={answerCardRef}
+              aria-labelledby="answer-card-title"
+              onClose={() => setIsCardOpen(false)}
+              onClick={event => { if (event.target === event.currentTarget) setIsCardOpen(false); }}
+              className="bg-slate-900 flex flex-col overflow-hidden rounded-2xl border border-slate-700 shadow-2xl"
+            >
               {/* Header do Cartão */}
               <div className="p-3.5 border-b border-slate-800 bg-slate-900/95 shrink-0">
                 <div className="flex items-center justify-between">
-                  <h2 className="font-bold text-sm text-slate-100 flex items-center gap-2">
+                  <h2 id="answer-card-title" className="font-bold text-sm text-slate-100 flex items-center gap-2">
                     <span>📝</span> Cartão de Respostas
                   </h2>
+                  <button autoFocus onClick={() => setIsCardOpen(false)} aria-label="Fechar cartão de respostas" className="min-h-11 px-3 rounded-lg bg-slate-800 text-sm font-semibold hover:bg-slate-700">Fechar ✕</button>
                   <span className="text-xs bg-slate-800 text-cyan-400 font-semibold px-2.5 py-1 rounded-full border border-slate-700">
                     {totalAnswered} / {selectedExam ? selectedExam.totalQuestions : 15}
                   </span>
@@ -537,7 +562,7 @@
                   return (
                     <div 
                       key={idx} 
-                      className={`p-2 sm:p-2.5 rounded-xl border transition-all duration-150 flex items-center justify-between ${statusClass}`}
+                      className={`answer-row p-2 sm:p-2.5 rounded-xl border transition-all duration-150 flex items-center justify-between ${statusClass}`}
                     >
                       {/* Question label */}
                       <div className="flex items-center space-x-2">
@@ -583,7 +608,9 @@
                               key={opt}
                               onClick={() => handleSelectOption(idx, opt)}
                               disabled={isSubmitted}
-                              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-bold border transition-all duration-100 flex items-center justify-center active:scale-95 ${btnStyle}`}
+                              aria-label={`Questão ${idx + 1}, alternativa ${opt}`}
+                              aria-pressed={isSelected}
+                              className={`answer-option w-9 h-11 sm:w-10 sm:h-11 rounded-lg text-xs font-bold border transition-all duration-100 flex items-center justify-center active:scale-95 ${btnStyle}`}
                             >
                               {opt}
                             </button>
@@ -607,10 +634,10 @@
                   </button>
                 )}
               </div>
-            </div>
+            </dialog>
 
             {/* TAB 3: Imagem de referência + resumo extra */}
-            <div className={`flex-1 flex flex-col bg-slate-900/95 overflow-hidden ${
+            <div className={`flex-1 min-w-0 flex flex-col bg-slate-900/95 overflow-hidden ${
               activeTab === 'formulas' ? 'flex' : 'hidden'
             }`}>
               {/* Formulário Toolbar */}
